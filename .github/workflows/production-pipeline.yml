@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: ${{secrets.PROD_BASE_URL}}
+      url: ${{ secrets.PROD_BASE_URL }}
     steps:
       - uses: actions/checkout@v3
       - name: Install Vercel CLI
