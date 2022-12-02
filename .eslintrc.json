@@ -29,6 +29,7 @@
   "rules": {
     "prettier/prettier": "error",
     "no-console": "error",
+    "linebreak-style": "off",
     "no-unused-vars": "warn",
     "array-bracket-spacing": "error",
     "comma-dangle": [
