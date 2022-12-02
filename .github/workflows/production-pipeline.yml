@@ -8,7 +8,6 @@ on:
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  PROD_BASE_ULR: ${{ secrets.PROD_BASE_URL }}
   
 jobs:
   unit-testing:
@@ -23,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: PROD_BASE_ULR
+      url: https://club-site.vercel.app/
     steps:
       - uses: actions/checkout@v3
       - name: Install Vercel CLI
