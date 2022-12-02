@@ -10,7 +10,7 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   
 jobs:
-  test:
+  unit-testing:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,7 +20,9 @@ jobs:
         run: npm run validate
   Production-Deploy:
     runs-on: ubuntu-latest
-    environment: production
+    environment:
+      name: production
+      url: ${{secrets.PROD_BASE_URL}}
     steps:
       - uses: actions/checkout@v3
       - name: Install Vercel CLI
