@@ -1,18 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { addMember, getMemberById } from '../services/member.services';
+import { addMember, getAllMembers } from '../services/member.services';
 import { Member } from '../../models/member.interface';
 
 const MemberController = async (req: NextApiRequest, res: NextApiResponse) => {
   const { body, method } = req;
   const bodyIsEmpty = !Object.keys(body).length;
 
-  if (method === 'GET') {
-    const { id } = body;
-    const member = await getMemberById(id as string);
-    if (!member) {
-      return res.status(404).json({ message: 'Member not found' });
-    }
-    return res.status(200).json(member);
+  if (method === 'GET' && bodyIsEmpty) {
+    const members = await getAllMembers();
+    return res.status(200).json({
+      Number_of_members: members.length,
+      members
+    });
   }
 
   if (method === 'POST' && bodyIsEmpty) {
