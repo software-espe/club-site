@@ -1,8 +1,8 @@
 // istanbul ignore file
 
-import Hello from '../components/Hello';
+import Header from '../components/Header';
 import { NextPage } from 'next';
 
-const Home: NextPage = () => <Hello />;
+const Home: NextPage = () => <Header />;
 
 export default Home;
