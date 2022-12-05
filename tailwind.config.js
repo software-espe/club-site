@@ -18,10 +18,12 @@ module.exports = {
           DEFAULT: '#202020',
           opaque: '#252525',
           light: '#2E2E2E',
-          super: '#585353'
+          super: '#585353',
+          background: '#1E1E1E'
         },
         green: {
-          DEFAULT: '#16B166'
+          DEFAULT: '#16B166',
+          light: '#0FDA78'
         }
       }
     }

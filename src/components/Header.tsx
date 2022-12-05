@@ -4,12 +4,12 @@ const Header = () => {
   const [userName, setUserName] = useState('Juan Pérez');
 
   return (
-    <div className="flex justify-end h-[96px] w-full bg-[#1E1E1E]">
-      <h3 className="mt-[52px] mr-[20px] font-bold text-[16px] leading-[19.36px]">
+    <div className="flex justify-end h-24 w-full bg-gray-background">
+      <h3 className="mt-[3.25rem] mr-[1.25rem] font-bold text-small leading-[1.2rem]">
         {userName}
       </h3>
-      <span className="w-[54px] h-[54px] rounded-full mt-[34px] mr-[-17px] bg-[#2E2E2E]"></span>
-      <span className="w-[19px] h-[19px] rounded-full mt-[36px] mr-[63px] bg-[#0FDA78] border-[3px] border-[#202020] box-border"></span>
+      <span className="w-[3.375rem] h-[3.375rem] rounded-full mt-[2.125rem] mr-[-1.125rem] bg-gray-light"></span>
+      <span className="w-[1.188rem] h-[1.188rem] rounded-full mt-[2.25rem] mr-16 bg-green-light border-[3px] border-gray box-border"></span>
     </div>
   );
 };
