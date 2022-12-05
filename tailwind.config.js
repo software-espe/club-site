@@ -21,7 +21,8 @@ module.exports = {
           super: '#585353'
         },
         green: {
-          DEFAULT: '#16B166'
+          DEFAULT: '#16B166',
+          light: '#0FDA78'
         }
       }
     }
