@@ -1,8 +1,6 @@
-// istanbul ignore file
-
-import Header from '../components/Header';
+import Header from '../components/molecules/Header';
 import { NextPage } from 'next';
 
-const Home: NextPage = () => <Header />;
+const Home: NextPage = () => <Header userName="User Name" online={true} />;
 
 export default Home;
