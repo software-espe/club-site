@@ -1,5 +1,5 @@
-import { NextPage } from 'next';
 import Landing from './Landing';
+import { NextPage } from 'next';
 
 const Home: NextPage = () => <Landing />;
 
