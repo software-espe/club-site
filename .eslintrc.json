@@ -1,36 +1,38 @@
 {
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "node": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals"
-  ],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "sourceType": "module"
-  },
+  "parser": "@typescript-eslint/parser",
   "plugins": [
-    "react",
-    "react-hooks",
     "@typescript-eslint",
     "prettier"
   ],
-  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "prettier/prettier": "error",
-    "no-console": "error",
     "linebreak-style": "off",
-    "no-unused-vars": "warn",
+    "no-console": [
+      2,
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ],
     "array-bracket-spacing": "error",
     "comma-dangle": [
       "error",
@@ -45,8 +47,18 @@
     "sort-keys": "error",
     "@typescript-eslint/no-explicit-any": "error",
     "import/prefer-default-export": "off",
-    "react-hooks/rules-of-hooks": "error",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
     "arrow-body-style": "off",
-    "prefer-arrow-callback": "off"
+    "prefer-arrow-callback": "warn"
   }
 }

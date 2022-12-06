@@ -4,14 +4,20 @@ on:
   push:
     branches:
       - main
-      
+
+
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  
+
 jobs:
   unit-testing:
     runs-on: ubuntu-latest
+    environment:
+      name: production
+    env:
+      FIREBASE_RTD_BASE_URL: ${{ secrets.FIREBASE_RTD_BASE_URL }}
+      ENV_API_KEY: ${{ secrets.ENV_API_KEY }}
     steps:
       - uses: actions/checkout@v3
       - name: install dependencies

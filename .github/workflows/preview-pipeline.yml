@@ -1,14 +1,22 @@
 name: Preview Deploy
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
 on:
   push:
     branches-ignore:
       - main
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
 jobs:
   unit-testing:
     runs-on: ubuntu-latest
+    environment:
+      name: preview
+    env:
+      FIREBASE_RTD_BASE_URL: ${{ secrets.FIREBASE_RTD_BASE_URL }}
+      ENV_API_KEY: ${{ secrets.ENV_API_KEY }}
     steps:
       - uses: actions/checkout@v3
       - name: install dependencies
