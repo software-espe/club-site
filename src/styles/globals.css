@@ -22,12 +22,25 @@ a {
 }
 
 @media (prefers-color-scheme: dark) {
-    html {
-        color-scheme: dark;
-    }
-
     body {
         color: white;
         background: #202020;
     }
+}
+
+
+.center {
+    @apply flex justify-center items-center;
+}
+
+.center-col {
+    @apply flex flex-col justify-center items-center;
+}
+
+.bottom {
+    @apply absolute bottom-0;
+}
+
+.top {
+    @apply absolute top-0;
 }

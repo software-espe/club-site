@@ -1,16 +1,32 @@
+import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { SizeProps } from '../../models/misc.interfaces';
 
-interface Props {
-  icon: string;
+interface baseProps {
+  src: string;
   alt: string;
-  url: string;
+  href: string | undefined;
 }
 
-const SocialIcon = ({ icon, alt, url }: Props) => {
+type Props = baseProps & SizeProps;
+
+const SocialIcon: FC<Props> = ({
+  src,
+  alt,
+  width,
+  height,
+  size,
+  href = '#'
+}) => {
   return (
-    <Link href={url}>
-      <Image src={icon} alt={alt} width="32" height="32" />
+    <Link href={href}>
+      <Image
+        src={src}
+        alt={alt}
+        width={width || size}
+        height={height || size}
+      />
     </Link>
   );
 };

@@ -1,9 +1,9 @@
-import Footer from '../molecules/Footer';
+import Footer from '../organisms/Footer';
 import Header from '../molecules/Header';
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 
 interface Props {
-  children?: ReactElement;
+  children?: ReactNode;
 }
 
 const BasePage = ({ children }: Props) => {

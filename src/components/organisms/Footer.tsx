@@ -2,11 +2,11 @@ import SocialMedia from '../atoms/SocialMedia';
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col absolute w-full items-center gap-4 bottom-0 px-3 py-14 bg-green">
+    <footer className="center-col rounded-t-xl w-full gap-4 bottom py-10  bg-green">
       <SocialMedia />
-      <p className="font-medium text-small not-italic leading-5 text-center max-w-[31.25rem]">
+      <p className="md:text-small text-xs text-center px-8 max-w-[30rem]">
         Club de Software de la Universidad de las Fuerzas Armadas ESPE 2022. All
-        rights reserverd
+        rights reserved
       </p>
     </footer>
   );

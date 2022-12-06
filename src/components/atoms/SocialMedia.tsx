@@ -1,14 +1,26 @@
-import LinkedinIcon from '../.././assets/icons/linkedin-icon.svg';
 import SocialIcon from './SocialIcon';
-import TelegramIcon from '../.././assets/icons/telegram-icon.svg';
-import WhatsAppIcon from '../.././assets/icons/whatsapp-icon.svg';
 
 const SocialMedia = () => {
   return (
-    <div className="flex flex-row gap-x-5">
-      <SocialIcon icon={LinkedinIcon} alt="Linkedin icon" url="#" />
-      <SocialIcon icon={WhatsAppIcon} alt="WhatsApp icon" url="#" />
-      <SocialIcon icon={TelegramIcon} alt="Telegram icon" url="#" />
+    <div className="center gap-5">
+      <SocialIcon
+        src="/icons/linkedin.svg"
+        size={32}
+        alt="Linkedin icon"
+        href={process.env.LINKEDIN_URL}
+      />
+      <SocialIcon
+        src="/icons/whatsapp.svg"
+        size={32}
+        alt="WhatsApp icon"
+        href={process.env.WHATSAPP_URL}
+      />
+      <SocialIcon
+        src="/icons/telegram.svg"
+        size={32}
+        alt="Telegram icon"
+        href={process.env.TELEGRAM_URL}
+      />
     </div>
   );
 };

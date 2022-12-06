@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
-import { render, screen, cleanup } from '@testing-library/react';
-import Footer from '../../../src/components/molecules/Footer';
+import { cleanup, render, screen } from '@testing-library/react';
+import Footer from '../../../src/components/organisms/Footer';
 
 describe('Footer', () => {
   beforeEach(() => render(<Footer />));
