@@ -1,6 +1,6 @@
-import Header from '../components/molecules/Header';
+import Landing from '../components/templates/BasePage';
 import { NextPage } from 'next';
 
-const Home: NextPage = () => <Header userName="User Name" online={true} />;
+const Home: NextPage = () => <Landing />;
 
 export default Home;
