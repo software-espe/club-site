@@ -1,12 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { addMember, getAllMembers } from '../../lib/services/member.services';
+import { addMember, getMembers } from '../../lib/services/member.services';
 import { Member } from '../../models/member.interface';
 import apiHandler from '../../lib/middlewares/apiHandler';
+import { buildQueryParams } from '../../lib/tools/BuildQueryParams';
 
 const getController = async (req: NextApiRequest, res: NextApiResponse) => {
-  const members = await getAllMembers();
+  const queryParams = buildQueryParams(req.query);
+  const members = await getMembers(queryParams);
   return res.status(200).json({
-    Number_of_members: members.length,
+    count: members.length,
     members
   });
 };
