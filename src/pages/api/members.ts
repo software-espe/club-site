@@ -21,7 +21,7 @@ const postController = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(400).json({ message: 'member is not valid' });
   }
 
-  const member = await addMember(JSON.parse(body) as Member);
+  const member = await addMember(body as Member);
 
   if (!member) {
     return res.status(500).json({ message: 'Member could not be created' });
