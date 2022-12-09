@@ -10,6 +10,7 @@ body {
     margin: 0;
     font-family: Inter, sans-serif;
     background: #202020;
+    color: #fff
 }
 
 a {
@@ -20,14 +21,6 @@ a {
 * {
     box-sizing: border-box;
 }
-
-@media (prefers-color-scheme: dark) {
-    body {
-        color: white;
-        background: #202020;
-    }
-}
-
 
 .center {
     @apply flex justify-center items-center;
