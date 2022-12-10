@@ -20,6 +20,7 @@ const Home: NextPage = () => {
           <BaseButton style={{ width: 300 }} text="Conocer a los miembros" />
         </div>
       </div>
+      <div className="grid-background h-[300px]" />
     </BasePage>
   );
 };
