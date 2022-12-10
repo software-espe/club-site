@@ -10,8 +10,12 @@ module.exports = {
         headline: '96px',
         bigTitle: '64px',
         title: '36px',
+        subtitle: '30px',
         body: '20px',
         small: '16px'
+      },
+      boxShadow: {
+        'blur': '0 0px 40px 3px #082BAA',
       },
       colors: {
         gray: {

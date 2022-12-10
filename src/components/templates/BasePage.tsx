@@ -8,11 +8,11 @@ interface Props {
 
 const BasePage = ({ children }: Props) => {
   return (
-    <>
+    <div className="h-full relative">
       <Header userName="User Name" online={true} />
       {children}
       <Footer />
-    </>
+    </div>
   );
 };
 
