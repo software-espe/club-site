@@ -1,4 +1,12 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## To start
+
+```bash
+npm install
+```
+```bash
+npm prepare
+```
 
 ## Getting Started
 
@@ -17,6 +25,24 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+### Validate format and functionality:
+
+```bash
+npm run validate
+```
+
+### Run all unit tests:
+
+```bash
+npm run test
+```
+
+### Create a dev server and start coding:
+
+```bash
+npm run dev
+```
 
 ## Learn More
 
@@ -45,7 +71,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ### Example
 
-    fix: 12 Update readme with commit messages format
+    fix: CS-12 Update readme with commit messages format
 
     Prefix to use in the space fix:
     `(fix: |feat: |build: |ci: |docs: |refactor: |test: )`
