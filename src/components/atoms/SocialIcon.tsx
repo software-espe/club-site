@@ -20,7 +20,7 @@ const SocialIcon: FC<Props> = ({
   href = '#'
 }) => {
   return (
-    <Link href={href}>
+    <Link href={href} className="hover:opacity-100 opacity-50">
       <Image
         src={src}
         alt={alt}
