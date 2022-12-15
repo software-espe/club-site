@@ -44,7 +44,6 @@
       "error",
       "single"
     ],
-    "sort-keys": "error",
     "@typescript-eslint/no-explicit-any": "error",
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
