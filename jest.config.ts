@@ -6,13 +6,6 @@ const createJestConfig = nextJest({
 const customJestConfig = {
   collectCoverage: true,
   collectCoverageFrom: ['./src/**'],
-  coverageThreshold: {
-    global: {
-      branches: 100,
-      lines: 100,
-      statements: 100
-    }
-  },
   moduleDirectories: ['node_modules', '<rootDir>/'],
   roots: ['<rootDir>/tests'],
   testEnvironment: 'jest-environment-jsdom',
