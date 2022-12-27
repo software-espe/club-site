@@ -1,4 +1,5 @@
 import UserThumbnail from '../atoms/UserThumbnail';
+import { useRouter } from 'next/router';
 
 interface Props {
   userName: string;
@@ -6,8 +7,22 @@ interface Props {
 }
 
 const Header = ({ userName, online }: Props) => {
+  const router = useRouter();
+
+  const redirectToHome = async () => {
+    await router.push('/');
+  };
+
+  const isHome = router?.pathname === '/';
+
   return (
-    <header className="flex justify-end h-24 w-full bg-gray px-8 py-4">
+    <header className="flex justify-between items-center h-24 w-full bg-gray px-8 py-4">
+      <button
+        onClick={redirectToHome}
+        className={`hover:opacity-100 opacity-50 ${isHome && 'invisible'}`}
+      >
+        Go Back
+      </button>
       <UserThumbnail userName={userName} online={online} />
     </header>
   );

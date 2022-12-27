@@ -6,10 +6,12 @@ import { SizeProps } from '../../models/misc.interfaces';
 interface baseProps {
   src: string;
   alt: string;
-  href: string | undefined;
+  href?: string;
 }
 
 type Props = baseProps & SizeProps;
+
+const defaultLink = '#';
 
 const SocialIcon: FC<Props> = ({
   src,
@@ -17,10 +19,13 @@ const SocialIcon: FC<Props> = ({
   width,
   height,
   size,
-  href = '#'
+  href = defaultLink
 }) => {
   return (
-    <Link href={href} className="hover:opacity-100 opacity-50">
+    <Link
+      href={href}
+      className={`${href != defaultLink ? 'opacity-100' : 'opacity-50'}`}
+    >
       <Image
         src={src}
         alt={alt}
