@@ -39,7 +39,9 @@ a {
 }
 
 .grid-background{
-    background-image: url('../../public/images/gridBackground.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index: -1;
 }
