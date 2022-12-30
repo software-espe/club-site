@@ -39,7 +39,7 @@ const Home: NextPage = () => {
           />
         </div>
       </div>
-      <div className="w-full h-screen overflow-hidden relative">
+      <div className="w-full h-screen overflow-hidden hidden lg:block relative">
         <Image
           alt="grid"
           className="object-contain"
