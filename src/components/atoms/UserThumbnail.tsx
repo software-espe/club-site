@@ -4,16 +4,19 @@ import userNameDecorator from '../../lib/tools/userNameDecorator';
 
 interface Props {
   user: User;
+  onClick?: () => void;
 }
 
-const UserThumbnail = ({ user }: Props) => {
+const UserThumbnail = ({ user, onClick }: Props) => {
   const photoUrl = user.photoURL || '/fallbacks/user.svg';
 
   return (
     <div className="flex justify-center items-center relative">
-      <h3 className="text-small mr-3">
-        {userNameDecorator(user?.displayName)}
-      </h3>
+      <button onClick={onClick}>
+        <h3 className="text-small mr-3">
+          {userNameDecorator(user?.displayName)}
+        </h3>
+      </button>
       <img
         className="relative w-10 h-10 rounded-full"
         src={photoUrl}
