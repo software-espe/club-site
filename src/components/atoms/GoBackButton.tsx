@@ -20,7 +20,7 @@ const GoBackButton = ({ className, isHome, ...props }: Props) => {
         src="/icons/arrow.svg"
         alt="back"
       />
-      <span className="text-small font-normal">Go Back</span>
+      <span className="text-small font-normal">Volver</span>
     </button>
   );
 };
