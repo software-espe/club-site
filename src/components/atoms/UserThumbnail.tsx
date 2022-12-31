@@ -1,5 +1,6 @@
 import React from 'react';
 import type { User } from '@firebase/auth';
+import userNameDecorator from '../../lib/tools/userNameDecorator';
 
 interface Props {
   user: User;
@@ -9,9 +10,9 @@ const UserThumbnail = ({ user }: Props) => {
   const photoUrl = user.photoURL || '/fallbacks/user.svg';
 
   return (
-    <div className="flex justify-center items-center">
-      <h3 className="capitalize text-small mr-3">
-        {user.displayName?.toLowerCase()}
+    <div className="flex justify-center items-center relative">
+      <h3 className="text-small mr-3">
+        {userNameDecorator(user?.displayName)}
       </h3>
       <img
         className="relative w-10 h-10 rounded-full"
@@ -21,6 +22,10 @@ const UserThumbnail = ({ user }: Props) => {
           const target = e.target as HTMLImageElement;
           target.src = '/fallbacks/user.svg';
         }}
+      />
+      <div
+        role="status"
+        className="absolute bg-green-light top-0 -right-1 w-3 h-3 rounded-full outline outline-4 outline-gray"
       />
     </div>
   );

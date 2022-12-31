@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { User } from '@firebase/auth';
+import type { UserInfo } from '@firebase/auth';
 
 type userState = {
-  user?: User;
+  user?: UserInfo;
   loggedIn: boolean;
   isLoading: boolean;
 };
@@ -18,7 +18,7 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    login: (state, action: PayloadAction<User>) => {
+    login: (state, action: PayloadAction<UserInfo>) => {
       state.user = action.payload;
       state.loggedIn = true;
     },

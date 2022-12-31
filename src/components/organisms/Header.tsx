@@ -1,7 +1,7 @@
 import UserThumbnail from '../atoms/UserThumbnail';
 import { useRouter } from 'next/router';
-import { userSignIn } from '../../lib/services/auth.service';
-import { login } from '../../store/reducers/user.store';
+import { userSignIn, userSignOut } from '../../lib/services/auth.service';
+import { login, logout } from '../../store/reducers/user.store';
 import { useDispatch } from 'react-redux';
 import userSelector from '../../store/selectors/user.selector';
 import SessionBadge from '../atoms/SessionBadge';
@@ -24,10 +24,10 @@ const Header = () => {
     }
   };
 
-  // const signOut = async () => {
-  //   await userSignOut();
-  //   dispatch(logout());
-  // };
+  const signOut = async () => {
+    await userSignOut();
+    dispatch(logout());
+  };
 
   const isHome = router?.pathname === '/';
 
@@ -37,6 +37,7 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center h-24 w-full bg-gray px-8 py-4">
       <GoBackButton isHome={isHome} onClick={redirectToHome} />
+      <button onClick={signOut}>logout</button>
       {userIsLogged && <UserThumbnail user={user} />}
       {userIsNotLogged && <SessionBadge text="Entrar" onClick={signIn} />}
     </header>
