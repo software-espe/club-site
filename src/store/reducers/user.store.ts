@@ -11,7 +11,7 @@ type userState = {
 const initialState: userState = {
   user: undefined,
   loggedIn: false,
-  isLoading: true
+  isLoading: false
 };
 
 export const userSlice = createSlice({

@@ -1,6 +1,6 @@
 import { FC, ReactNode, useEffect, useRef, HTMLAttributes } from 'react';
 import { useDispatch } from 'react-redux';
-import { login, logout, setLoading } from '../../store/reducers/user.store';
+import { login, logout } from '../../store/reducers/user.store';
 import { firebaseAuth } from '../../lib/firebase/firebase.config';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -19,7 +19,6 @@ export const Authenticate: FC<Props> = ({ children, ...props }) => {
           return;
         }
         dispatch(login(loggedUser));
-        dispatch(setLoading(false));
       }
     });
     return () => {
