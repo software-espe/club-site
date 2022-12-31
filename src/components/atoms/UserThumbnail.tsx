@@ -14,7 +14,7 @@ const UserThumbnail = ({ user }: Props) => {
         {user.displayName?.toLowerCase()}
       </h3>
       <img
-        className="relative w-12 h-12 rounded-full"
+        className="relative w-10 h-10 rounded-full"
         src={photoUrl}
         alt="user photo"
         onError={(e) => {

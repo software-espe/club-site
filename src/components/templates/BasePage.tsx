@@ -1,5 +1,5 @@
 import Footer from '../organisms/Footer';
-import Header from '../molecules/Header';
+import Header from '../organisms/Header';
 import { ReactNode } from 'react';
 import { Authenticate } from './Authenticate';
 

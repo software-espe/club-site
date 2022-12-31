@@ -5,11 +5,13 @@ import type { User } from '@firebase/auth';
 type userState = {
   user?: User;
   loggedIn: boolean;
+  isLoading: boolean;
 };
 
 const initialState: userState = {
   user: undefined,
-  loggedIn: false
+  loggedIn: false,
+  isLoading: true
 };
 
 export const userSlice = createSlice({
@@ -23,9 +25,12 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.user = undefined;
       state.loggedIn = false;
+    },
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
     }
   }
 });
 
-export const { login, logout } = userSlice.actions;
+export const { login, logout, setLoading } = userSlice.actions;
 export default userSlice.reducer;

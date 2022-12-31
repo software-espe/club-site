@@ -3,7 +3,7 @@ import User from './reducers/user.store';
 
 export const store = configureStore({
   reducer: {
-    user: User
+    userSession: User
   }
 });
 
