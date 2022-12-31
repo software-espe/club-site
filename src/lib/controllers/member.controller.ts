@@ -1,7 +1,7 @@
 import { Collections } from '../../models/collections.interface';
 import { Member } from '../../models/member.interface';
 import { Query } from '../tools/BuildQueryParams';
-import { firestore } from '../firebase.admin.config';
+import { firestore } from '../firebase/firebase.admin.config';
 
 export const getAllMembers = async (): Promise<Member[]> => {
   const queryMembers = await firestore.collection(Collections.members).get();

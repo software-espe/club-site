@@ -1,16 +1,25 @@
 import UserThumbnail from '../atoms/UserThumbnail';
 import { useRouter } from 'next/router';
+import { userSignIn } from '../../lib/services/auth.service';
+import { login } from '../../store/reducers/user.store';
+import { useDispatch } from 'react-redux';
+import userSelector from '../../store/selectors/user.selector';
 
-interface Props {
-  userName: string;
-  online?: boolean;
-}
-
-const Header = ({ userName, online }: Props) => {
+const Header = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
+
+  const { user } = userSelector();
 
   const redirectToHome = async () => {
     await router.push('/');
+  };
+
+  const signIn = async () => {
+    const userSession = await userSignIn();
+    if (userSession) {
+      dispatch(login(userSession));
+    }
   };
 
   const isHome = router?.pathname === '/';
@@ -23,7 +32,8 @@ const Header = ({ userName, online }: Props) => {
       >
         Go Back
       </button>
-      <UserThumbnail userName={userName} online={online} />
+      <button onClick={signIn}>click here</button>
+      <UserThumbnail user={user} />
     </header>
   );
 };

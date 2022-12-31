@@ -1,7 +1,7 @@
 import { cert, getApps, initializeApp } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
-import { serviceConfig } from '../../service.config';
+import { serviceConfig } from '../../../service.config';
 
 if (!getApps().length) {
   initializeApp({

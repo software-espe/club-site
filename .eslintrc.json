@@ -39,7 +39,6 @@
       "never"
     ],
     "no-var": "error",
-    "sort-imports": "error",
     "quotes": [
       "error",
       "single"

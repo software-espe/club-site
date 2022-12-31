@@ -1,22 +1,26 @@
 import React from 'react';
+import type { User } from '@firebase/auth';
 
 interface Props {
-  userName: string;
-  online?: boolean;
+  user: User | null;
 }
 
-const UserThumbnail = ({ userName, online = false }: Props) => {
+const UserThumbnail = ({ user }: Props) => {
+  const userName = user?.displayName || 'Anonymous';
+  const photoUrl = user?.photoURL || '/fallbacks/user.svg';
+
   return (
     <div className="flex justify-center items-center">
       <h3 className="font-bold text-small mr-3">{userName}</h3>
-      <span className="relative w-14 h-14 rounded-full bg-gray-light">
-        <div
-          role="status"
-          className={`absolute ${
-            online ? 'bg-green-light' : 'bg-gray-light'
-          } top-1 right-1 w-3 h-3 rounded-full outline outline-4 outline-gray`}
-        />
-      </span>
+      <img
+        className="relative w-12 h-12 rounded-full"
+        src={photoUrl}
+        alt="user photo"
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.src = '/fallbacks/user.svg';
+        }}
+      />
     </div>
   );
 };
