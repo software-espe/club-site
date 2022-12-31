@@ -1,9 +1,10 @@
 import UserThumbnail from '../atoms/UserThumbnail';
 import { useRouter } from 'next/router';
-import { userSignIn } from '../../lib/services/auth.service';
-import { login } from '../../store/reducers/user.store';
+import { userSignIn, userSignOut } from '../../lib/services/auth.service';
+import { login, logout } from '../../store/reducers/user.store';
 import { useDispatch } from 'react-redux';
 import userSelector from '../../store/selectors/user.selector';
+import SessionBadge from '../atoms/SessionBadge';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,11 @@ const Header = () => {
     }
   };
 
+  const signOut = async () => {
+    await userSignOut();
+    dispatch(logout());
+  };
+
   const isHome = router?.pathname === '/';
 
   return (
@@ -32,8 +38,9 @@ const Header = () => {
       >
         Go Back
       </button>
-      <button onClick={signIn}>click here</button>
-      <UserThumbnail user={user} />
+      <button onClick={signOut}>logout</button>
+      {user && <UserThumbnail user={user} />}
+      {!user && <SessionBadge text="Entrar" onClick={signIn} />}
     </header>
   );
 };

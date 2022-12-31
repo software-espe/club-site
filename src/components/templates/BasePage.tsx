@@ -9,13 +9,11 @@ interface Props {
 
 const BasePage = ({ children }: Props) => {
   return (
-    <div className="h-full relative">
-      <Authenticate>
-        <Header />
-        {children}
-        <Footer />
-      </Authenticate>
-    </div>
+    <Authenticate className="h-full relative">
+      <Header />
+      {children}
+      <Footer />
+    </Authenticate>
   );
 };
 

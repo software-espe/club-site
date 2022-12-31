@@ -2,16 +2,17 @@ import React from 'react';
 import type { User } from '@firebase/auth';
 
 interface Props {
-  user: User | null;
+  user: User;
 }
 
 const UserThumbnail = ({ user }: Props) => {
-  const userName = user?.displayName || 'Anonymous';
-  const photoUrl = user?.photoURL || '/fallbacks/user.svg';
+  const photoUrl = user.photoURL || '/fallbacks/user.svg';
 
   return (
     <div className="flex justify-center items-center">
-      <h3 className="font-bold text-small mr-3">{userName}</h3>
+      <h3 className="capitalize text-small mr-3">
+        {user.displayName?.toLowerCase()}
+      </h3>
       <img
         className="relative w-12 h-12 rounded-full"
         src={photoUrl}

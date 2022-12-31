@@ -3,13 +3,11 @@ import { useDispatch } from 'react-redux';
 import { login, logout } from '../../store/reducers/user.store';
 import { firebaseAuth } from '../../lib/firebase/firebase.config';
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode | ReactNode[];
-  verifyEmail?: boolean;
-  isConfirmationPage?: boolean;
 }
 
-export const Authenticate: FC<Props> = ({ children }) => {
+export const Authenticate: FC<Props> = ({ children, ...props }) => {
   const dispatch = useDispatch();
   const isUnmounted = useRef(false);
 
@@ -29,5 +27,5 @@ export const Authenticate: FC<Props> = ({ children }) => {
     };
   }, []);
 
-  return <div>{children}</div>;
+  return <div {...props}>{children}</div>;
 };

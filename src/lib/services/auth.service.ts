@@ -1,4 +1,4 @@
-import { signInWithGoogle } from '../firebase/firebase_auth';
+import { signInWithGoogle, logOutGoogle } from '../firebase/firebase_auth';
 import type { User } from '@firebase/auth';
 
 const userSignIn = async (): Promise<User | void> => {
@@ -9,4 +9,13 @@ const userSignIn = async (): Promise<User | void> => {
     console.error(error);
   }
 };
-export { userSignIn };
+
+const userSignOut = async (): Promise<void> => {
+  try {
+    await logOutGoogle();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export { userSignIn, userSignOut };
