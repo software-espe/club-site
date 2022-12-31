@@ -10,7 +10,7 @@ body {
     margin: 0;
     font-family: Inter, sans-serif;
     background: #202020;
-    color: #fff
+    color: #fff;
 }
 
 a {
@@ -20,6 +20,7 @@ a {
 
 * {
     box-sizing: border-box;
+    /*border: 1px solid red;*/
 }
 
 .center {
@@ -36,12 +37,4 @@ a {
 
 .top {
     @apply absolute top-0;
-}
-
-.grid-background{
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    z-index: -1;
 }

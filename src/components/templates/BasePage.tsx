@@ -1,6 +1,7 @@
 import Footer from '../organisms/Footer';
-import Header from '../molecules/Header';
+import Header from '../organisms/Header';
 import { ReactNode } from 'react';
+import { Authenticate } from './Authenticate';
 
 interface Props {
   children?: ReactNode;
@@ -8,11 +9,11 @@ interface Props {
 
 const BasePage = ({ children }: Props) => {
   return (
-    <div className="h-full relative">
-      <Header userName="User Name" online={true} />
+    <Authenticate className="h-full relative">
+      <Header />
       {children}
       <Footer />
-    </div>
+    </Authenticate>
   );
 };
 
