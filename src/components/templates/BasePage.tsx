@@ -2,18 +2,25 @@ import Footer from '../organisms/Footer';
 import Header from '../organisms/Header';
 import { ReactNode } from 'react';
 import { Authenticate } from './Authenticate';
+import Head from 'next/head';
 
 interface Props {
+  title?: string;
   children?: ReactNode;
 }
 
-const BasePage = ({ children }: Props) => {
+const BasePage = ({ children, title }: Props) => {
   return (
-    <Authenticate className="h-full relative">
-      <Header />
-      {children}
-      <Footer />
-    </Authenticate>
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <Authenticate className="h-full relative">
+        <Header />
+        {children}
+        <Footer />
+      </Authenticate>
+    </>
   );
 };
 
