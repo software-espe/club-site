@@ -5,7 +5,7 @@ import Banner from '../components/molecules/Banner';
 
 const Home: NextPage = () => {
   return (
-    <BasePage>
+    <BasePage title="Club de Software - ESPE">
       <Banner />
       <div className="h-screen overflow-hidden hidden lg:block relative">
         <Image

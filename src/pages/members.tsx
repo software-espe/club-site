@@ -26,7 +26,7 @@ const Members: NextPage = () => {
   const regularMembers = members.filter((member) => member.role === 'Member');
 
   return (
-    <BasePage>
+    <BasePage title="Miembros del club">
       <div className="center-col gap-10 mb-20">
         <div className="center lg:flex-row flex-col gap-10">
           <Image src="/images/logo.svg" alt="logo" width={152} height={172} />
