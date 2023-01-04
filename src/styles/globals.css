@@ -38,3 +38,7 @@ a {
 .top {
     @apply absolute top-0;
 }
+
+.no-outline {
+    @apply outline-none hover:outline-none focus:outline-none;
+}

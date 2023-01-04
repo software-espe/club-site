@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Member } from '../../models/member.interface';
+import { Member } from '../../interface/member.interface';
 import UserSocials from '../molecules/UserSocials';
 
 const UserCard: FC<Partial<Member>> = ({
