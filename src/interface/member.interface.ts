@@ -1,4 +1,4 @@
-export type role = 'Member' | 'Staff' | 'TopMember';
+export type role = 'Member' | 'Staff' | 'TopMember' | 'Candidate';
 
 export interface Member {
   id?: string;
@@ -11,5 +11,5 @@ export interface Member {
     twitter?: string;
   };
   role?: role;
-  label?: boolean;
+  label?: string;
 }

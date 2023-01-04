@@ -1,14 +1,7 @@
-import { Collections } from '../../models/collections.interface';
-import { Member } from '../../models/member.interface';
+import { Collections } from '../../interface/collections.interface';
+import { Member } from '../../interface/member.interface';
 import { Query } from '../tools/BuildQueryParams';
 import { firestore } from '../firebase/firebase.admin.config';
-
-export const getAllMembers = async (): Promise<Member[]> => {
-  const queryMembers = await firestore.collection(Collections.members).get();
-  return queryMembers.docs.map((doc) => {
-    return { ...doc.data(), id: doc.id } as Member;
-  });
-};
 
 export const getMembers = async (
   queryParams?: Array<Query>
@@ -41,4 +34,35 @@ export const getMemberById = async (id: string): Promise<Member | void> => {
   } catch {
     return undefined;
   }
+};
+
+export const updateMember = async (
+  id: string,
+  member: Member
+): Promise<Member | void> => {
+  try {
+    await firestore
+      .collection(Collections.members)
+      .doc(id)
+      .update(member as any);
+    return {
+      id,
+      ...member
+    };
+  } catch (_e) {
+    throw {
+      message: 'Member does not exist or could not be updated'
+    };
+  }
+};
+
+export const deleteMember = async (uid: string): Promise<void> => {
+  const userRef = await firestore.collection(Collections.members).doc(uid);
+  const user = await userRef.get();
+  if (!user.exists) {
+    throw {
+      message: `User ${uid} does not exist`
+    };
+  }
+  await userRef.delete();
 };

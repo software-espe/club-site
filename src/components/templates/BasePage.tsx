@@ -17,7 +17,7 @@ const BasePage = ({ children, title }: Props) => {
       </Head>
       <Authenticate className="h-full relative">
         <Header />
-        {children}
+        <div className="min-h-screen">{children}</div>
         <Footer />
       </Authenticate>
     </>

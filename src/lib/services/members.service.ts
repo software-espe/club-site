@@ -1,4 +1,4 @@
-import { Member } from '../../models/member.interface';
+import { Member } from '../../interface/member.interface';
 
 export const fetchAllMembers = async (): Promise<{
   count: number;

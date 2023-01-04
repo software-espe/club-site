@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import BasePage from '../components/templates/BasePage';
 import Image from 'next/image';
-import { Member } from '../models/member.interface';
+import { Member } from '../interface/member.interface';
 import MemberSection from '../components/atoms/MemberSection';
 import { NextPage } from 'next';
 import UserCard from '../components/organisms/UserCard';
