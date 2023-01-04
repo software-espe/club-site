@@ -43,7 +43,7 @@
       "error",
       "single"
     ],
-    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-var-requires": "off",
