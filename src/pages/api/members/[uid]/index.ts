@@ -1,10 +1,24 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import {
   deleteMember,
-  updateMember
+  updateMember,
+  getMemberById
 } from '../../../../lib/controllers/member.controller';
 import { Member } from '../../../../interface/member.interface';
 import apiHandler from '../../../../lib/middlewares/apiHandler';
+
+const getController = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { query } = req;
+
+  const uid: string = query.uid as string;
+
+  try {
+    const member = await getMemberById(uid);
+    return res.status(200).json(member);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
 
 const deleteController = async (req: NextApiRequest, res: NextApiResponse) => {
   const { query } = req;
@@ -38,5 +52,6 @@ const putController = async (req: NextApiRequest, res: NextApiResponse) => {
 
 export default apiHandler({
   delete: deleteController,
-  put: putController
+  put: putController,
+  get: getController
 });
