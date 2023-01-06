@@ -28,7 +28,10 @@ export const addMember = async (member: Member): Promise<Member | void> => {
 };
 
 export const getMemberById = async (id: string): Promise<Member | void> => {
-  const memberRef = await firestore.collection(Collections.members).doc(id).get();
+  const memberRef = await firestore
+    .collection(Collections.members)
+    .doc(id)
+    .get();
   if (!memberRef.exists) {
     throw {
       message: 'Member does not exist'
