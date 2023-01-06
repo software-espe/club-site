@@ -28,12 +28,14 @@ export const addMember = async (member: Member): Promise<Member | void> => {
 };
 
 export const getMemberById = async (id: string): Promise<Member | void> => {
-  try {
-    const doc = await firestore.collection(Collections.members).doc(id).get();
-    return { ...doc.data(), id: doc.id } as Member;
-  } catch {
-    return undefined;
+  const memberRef = await firestore.collection(Collections.members).doc(id).get();
+  if (!memberRef.exists) {
+    throw {
+      message: 'Member does not exist'
+    };
   }
+
+  return { ...memberRef.data(), id: id } as Member;
 };
 
 export const updateMember = async (
