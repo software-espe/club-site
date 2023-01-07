@@ -27,23 +27,29 @@ const Members: NextPage = () => {
 
   return (
     <BasePage title="Miembros del club">
-      <div className="center-col gap-10 mb-20">
-        <div className="center lg:flex-row flex-col gap-10">
-          <Image src="/images/logo.svg" alt="logo" width={152} height={172} />
+      <div className="center-col gap-10 p-10 mb-14">
+        <div className="center lg:flex-row flex-col">
+          <Image
+            className="hidden lg:block"
+            src="/images/logo.svg"
+            alt="logo"
+            width={152}
+            height={172}
+          />
           <div className="center-col">
             <h1 className="lg:text-bigTitle text-title font-bold">
               Miembros del Club
             </h1>
-            <p className="lg:text-body text-small">
-              Si formas parte del club y no te encuentras en el listado
+            <p className="lg:text-body text-small text-center">
+              Si formas parte del club y no te encuentras en el listado{' '}
+              <span className="text-blue-light lg:text-body text-small">
+                haz click aquí
+              </span>
             </p>
-            <a className="text-blue-light lg:text-body text-small">
-              haz click aquí
-            </a>
           </div>
         </div>
 
-        <p className="text-gray-super w-1/2 text-center lg:text-body text-small">
+        <p className="text-gray-super text-center md:w-[800px] w-full lg:text-body text-small">
           consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
           labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
           exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
