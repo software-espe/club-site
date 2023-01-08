@@ -9,7 +9,11 @@ import GoBackButton from '../atoms/GoBackButton';
 import Modal from '../atoms/Modal';
 import { useModal } from '../../hooks/useModal';
 
-const Header = () => {
+interface Props {
+  backTo?: string;
+}
+
+const Header = ({ backTo = '/' }: Props) => {
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -17,7 +21,7 @@ const Header = () => {
   const { user, isLoading, isLogged } = userSelector();
 
   const redirectToHome = async () => {
-    await router.push('/');
+    await router.push(backTo);
   };
 
   const signIn = async () => {

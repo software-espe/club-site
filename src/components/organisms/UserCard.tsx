@@ -37,7 +37,15 @@ const UserCard: FC<Partial<Member>> = ({
     >
       {role === 'Staff' && <span className="text-small">{label}</span>}
       <div className="overflow-hidden bg-gray-light h-32 w-32 rounded-full">
-        {picture && <img src={picture} alt="user" width={128} height={128} />}
+        {picture && (
+          <img
+            src={picture}
+            alt="user"
+            className="object-cover"
+            width={128}
+            height={128}
+          />
+        )}
       </div>
       <span className="text-body font-bold">
         {name} {surname}

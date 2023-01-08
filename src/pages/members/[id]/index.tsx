@@ -20,8 +20,10 @@ const Index: NextPage = () => {
   });
 
   return (
-    <BasePage title="Miembros del club">
-      <h1>{member?.name}</h1>
+    <BasePage title="Miembros del club" backTo="/members">
+      <h1>
+        {member?.name} {member?.surname}
+      </h1>
     </BasePage>
   );
 };
