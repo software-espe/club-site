@@ -10,5 +10,6 @@ export const defaultMember: Omit<Member, 'id'> = {
     twitter: ''
   },
   role: 'Candidate',
-  label: undefined
+  label: undefined,
+  picture_url: undefined
 };

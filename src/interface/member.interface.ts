@@ -12,4 +12,5 @@ export interface Member {
   };
   role?: role;
   label?: string;
+  picture_url?: string;
 }

@@ -25,8 +25,8 @@ const sendEmail = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(200).json({ status: 'success' });
   } catch (e) {
     res.status(400).json({
-      error: `Error in sendgrid Service. ${e}`,
-      status: 'error'
+      error: e,
+      status: 'Error in sendgrid Service'
     });
   }
 };
