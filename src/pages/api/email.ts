@@ -5,32 +5,30 @@ import sendgridConfig from '../../lib/sendgrid/config';
 
 mail.setApiKey(sendgridConfig.apiKey);
 
-const sendEmail = (req: NextApiRequest, res: NextApiResponse) => {
-  const { to, templateData } = req.body;
+const sendEmail = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { to, mailDetails, templateId } = req.body;
 
   const dynamicTemplateData = {
     base_url: sendgridConfig.baseUrl,
-    subject: templateData.subject,
-    message: templateData.message
+    mailDetails
   };
 
   const message = {
     to,
     from: sendgridConfig.sender,
-    templateId: sendgridConfig.joinTemplateId,
+    templateId: templateId,
     dynamic_template_data: dynamicTemplateData
   };
-  return mail
-    .send(message)
-    .then(() => {
-      res.status(200).json({ status: 'success' });
-    })
-    .catch((error) => {
-      res.status(400).json({
-        error: `Error in sendgrid Service. ${error}`,
-        status: 'error'
-      });
+
+  try {
+    await mail.send(message);
+    return res.status(200).json({ status: 'success' });
+  } catch (e) {
+    res.status(400).json({
+      error: e,
+      status: 'Error in sendgrid Service'
     });
+  }
 };
 
 export default ApiHandler({

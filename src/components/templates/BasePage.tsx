@@ -7,16 +7,17 @@ import Head from 'next/head';
 interface Props {
   title?: string;
   children?: ReactNode;
+  backTo?: string;
 }
 
-const BasePage = ({ children, title }: Props) => {
+const BasePage = ({ children, title, backTo }: Props) => {
   return (
     <>
       <Head>
         <title>{title}</title>
       </Head>
       <Authenticate className="h-full relative">
-        <Header />
+        <Header backTo={backTo} />
         <div className="min-h-screen">{children}</div>
         <Footer />
       </Authenticate>
