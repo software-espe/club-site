@@ -7,6 +7,8 @@ import userSelector from '../../store/selectors/user.selector';
 const Banner = () => {
   const router = useRouter();
 
+  const { user, isLogged } = userSelector();
+
   const redirectToMembers = async () => {
     await router.push('/members');
   };
@@ -15,11 +17,9 @@ const Banner = () => {
     await router.push('/register');
   };
 
-  const redirectToProfile = async (uid: string) => {
-    await router.push(`/members/${uid}`);
+  const redirectToProfile = async () => {
+    await router.push(`/members/${user.uid}`);
   };
-
-  const { user, isLogged } = userSelector();
 
   return (
     <div className="h-[calc(100vh-12rem)] center-col md:mt-0 gap-8">
@@ -35,7 +35,7 @@ const Banner = () => {
         <>
           {isLogged ? (
             <BaseButton
-              onClick={() => redirectToProfile(user.uid)}
+              onClick={redirectToProfile}
               className="bg-gray w-[200px]"
               text="Ir a mi perfil"
             />
