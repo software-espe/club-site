@@ -10,7 +10,7 @@ const InputText = ({ ...props }: Props) => {
       <label className="text-small mb-2" htmlFor={props.name}>
         {props.label}
       </label>
-      <input className="bg-gray-light no-outline rounded-md p-2" {...props} />
+      <input className="bg-gray-light no-outline rounded-md px-5 py-2" {...props} />
     </div>
   );
 };

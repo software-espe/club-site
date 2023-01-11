@@ -12,4 +12,8 @@ export interface Member {
   };
   role?: role;
   label?: string;
+  birthdate: string;
+  career: string;
+  currentSemester: string;
+  experience: boolean;
 }
