@@ -2,9 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import BaseButton from '../atoms/BaseButton';
 import { useRouter } from 'next/router';
+import userSelector from '../../store/selectors/user.selector';
 
 const Banner = () => {
   const router = useRouter();
+
+  const { user, isLogged } = userSelector();
 
   const redirectToMembers = async () => {
     await router.push('/members');
@@ -12,6 +15,10 @@ const Banner = () => {
 
   const redirectToRegister = async () => {
     await router.push('/register');
+  };
+
+  const redirectToProfile = async () => {
+    await router.push(`/members/${user.uid}`);
   };
 
   return (
@@ -25,11 +32,22 @@ const Banner = () => {
         </h2>
       </div>
       <div className="center lg:flex-row flex-col  gap-4 z-10">
-        <BaseButton
-          onClick={redirectToRegister}
-          className="bg-gray w-[150px]"
-          text="Unirme"
-        />
+        <>
+          {isLogged ? (
+            <BaseButton
+              onClick={redirectToProfile}
+              className="bg-gray w-[200px]"
+              text="Ir a mi perfil"
+            />
+          ) : (
+            <BaseButton
+              onClick={redirectToRegister}
+              className="bg-gray w-[150px]"
+              text="Unirme"
+            />
+          )}
+        </>
+
         <BaseButton
           onClick={redirectToMembers}
           className="bg-gray w-[300px]"

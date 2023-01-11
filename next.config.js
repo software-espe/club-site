@@ -8,6 +8,9 @@ module.exports = async (_phase, { _defaultConfig }) => {
   return {
     env: env,
     reactStrictMode: true,
+    images: {
+      domains: ['firebasestorage.googleapis.com']
+    },
     swcMinify: true
   };
 };

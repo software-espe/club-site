@@ -16,4 +16,5 @@ export interface Member {
   career: string;
   currentSemester: string;
   experience: boolean;
+  picture_url?: string;
 }
