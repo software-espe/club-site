@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   text: string;
@@ -10,7 +10,7 @@ const InputCheckbox = ({ ...props }: Props) => {
       <input type="checkbox" {...props} />
       <span>{props.text}</span>
     </div>
-  )
-}
+  );
+};
 
-export default InputCheckbox
+export default InputCheckbox;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 interface Props {
   label: string;
@@ -11,7 +11,7 @@ const ComponentTemplateWithLabel: React.FC<Props> = ({ label, children }) => {
       <label className="text-small mb-2">{label}</label>
       {children}
     </div>
-  )
-}
+  );
+};
 
 export default ComponentTemplateWithLabel;
