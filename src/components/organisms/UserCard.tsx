@@ -35,7 +35,7 @@ const UserCard: FC<Partial<Member>> = ({
       className="center-col gap-4 w-80 h-80 rounded-lg hover:bg-gray-opaque"
       onClick={redirectToMember}
     >
-      {role === 'Staff' && <span className="text-small">{label}</span>}
+      {role === 'vetus' && <span className="text-small">{label}</span>}
       <div className="overflow-hidden bg-gray-light h-32 w-32 rounded-full">
         {picture && (
           <img
