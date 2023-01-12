@@ -1,6 +1,7 @@
 import { Member } from '../member.interface';
 
-export const defaultMember: Omit<Member, 'id'> = {
+export const defaultMember: Member = {
+  id: '',
   name: '',
   surname: '',
   email: '',

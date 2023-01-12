@@ -27,6 +27,14 @@ export const addMember = async (member: Member): Promise<Member | void> => {
   return { ...member, id: doc.id };
 };
 
+export const setMember = async (
+  id: string,
+  member: Member
+): Promise<Member | void> => {
+  await firestore.collection(Collections.members).doc(id).set(member);
+  return { ...member, id };
+};
+
 export const getMemberById = async (id: string): Promise<Member | void> => {
   const memberRef = await firestore
     .collection(Collections.members)

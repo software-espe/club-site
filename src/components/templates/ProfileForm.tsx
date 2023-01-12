@@ -9,12 +9,18 @@ import InputEmail from '../atoms/InputEmail';
 import ComponentTemplateWithLabel from '../atoms/ComponentTemplateWithLabel';
 import InputDate from '../molecules/InputDate';
 import InputCheckbox from '../atoms/InputCheckbox';
+import { fetchRegisterMember } from '../../lib/services/members.service';
 
 const ProfileForm = () => {
+  const handleSubmit = async (values: Member) => {
+    const { id, ...member } = values;
+    await fetchRegisterMember(id, member);
+  };
+
   const formik = useFormik({
     initialValues: defaultMember,
-    onSubmit: (values: Member) => {
-      console.error(values);
+    onSubmit: async (values: Member) => {
+      await handleSubmit(values);
     }
   });
 
@@ -25,11 +31,7 @@ const ProfileForm = () => {
       </h2>
       <div className="flex flex-row gap-x-32 px-48 py-12">
         <div className="flex flex-col gap-y-8 w-1/2 m-4">
-          <InputEmail
-            setter={formik.setFieldValue}
-            label="Correo"
-            value="Entrar con Google"
-          />
+          <InputEmail setter={formik.setFieldValue} />
           <ComponentTemplateWithLabel label="Redes">
             <>
               <InputWithIcon
@@ -44,7 +46,6 @@ const ProfileForm = () => {
               <InputWithIcon
                 src="/icons/twitter.svg"
                 alt="Twitter icon"
-                id="twitterIcon"
                 name="twitterIcon"
                 placeholder="@"
                 value={formik.values.socials.twitter}
@@ -53,7 +54,6 @@ const ProfileForm = () => {
               <InputWithIcon
                 src="/icons/whatsapp.svg"
                 alt="Whatsapp icon"
-                id="whatsappIcon"
                 name="whatsappIcon"
                 placeholder="+593"
                 value={formik.values.socials.whatsapp}
@@ -104,7 +104,7 @@ const ProfileForm = () => {
         </div>
       </div>
       <div className="flex items-center justify-center mb-28">
-        <BaseButton text="Registrarse" type="submit" />
+        <BaseButton text="Registrarse" onClick={formik.submitForm} />
       </div>
     </form>
   );
