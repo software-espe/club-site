@@ -2,7 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import {
   deleteMember,
   updateMember,
-  getMemberById
+  getMemberById,
+  setMember
 } from '../../../../lib/controllers/member.controller';
 import { Member } from '../../../../interface/member.interface';
 import apiHandler from '../../../../lib/middlewares/apiHandler';
@@ -50,8 +51,24 @@ const putController = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
+const postController = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { query, body } = req;
+  if (!query.id || !body) {
+    return res.status(400).json({ message: 'Missing Id or body' });
+  }
+
+  const id: string = query.id as string;
+  try {
+    const member = await setMember(id, body as Member);
+    return res.status(200).json(member);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
 export default apiHandler({
   delete: deleteController,
   put: putController,
+  post: postController,
   get: getController
 });

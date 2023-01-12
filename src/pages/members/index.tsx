@@ -21,9 +21,9 @@ const Index: NextPage = () => {
     })();
   });
 
-  const staffMembers = members.filter((member) => member.role === 'Staff');
-  const topMembers = members.filter((member) => member.role === 'TopMember');
-  const regularMembers = members.filter((member) => member.role === 'Member');
+  const staffMembers = members.filter((member) => member.role === 'vetus');
+  const topMembers = members.filter((member) => member.role === 'ventator');
+  const regularMembers = members.filter((member) => member.role === 'member');
 
   return (
     <BasePage title="Miembros del club">
