@@ -1,4 +1,4 @@
-export type role = 'Member' | 'Staff' | 'TopMember' | 'Candidate';
+export type role = 'member' | 'vetus' | 'ventator' | 'candidate';
 
 export interface Member {
   id?: string;

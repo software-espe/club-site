@@ -25,7 +25,11 @@ const ProfileForm = () => {
       </h2>
       <div className="flex flex-row gap-x-32 px-48 py-12">
         <div className="flex flex-col gap-y-8 w-1/2 m-4">
-          <InputEmail label="Correo" value="Entrar con Google" />
+          <InputEmail
+            setter={formik.setFieldValue}
+            label="Correo"
+            value="Entrar con Google"
+          />
           <ComponentTemplateWithLabel label="Redes">
             <>
               <InputWithIcon
