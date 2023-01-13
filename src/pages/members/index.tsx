@@ -22,8 +22,11 @@ const Index: NextPage = () => {
   });
 
   const staffMembers = members.filter((member) => member.role === 'vetus');
-  const topMembers = members.filter((member) => member.role === 'ventator');
+  const topMembers = members.filter((member) => member.role === 'venator');
   const regularMembers = members.filter((member) => member.role === 'member');
+  const candidateMembers = members.filter(
+    (member) => member.role === 'candidate'
+  );
 
   return (
     <BasePage title="Miembros del club">
@@ -66,8 +69,13 @@ const Index: NextPage = () => {
           <UserCard key={member.id} {...member} />
         ))}
       </MemberSection>
-      <MemberSection name="Miembros" isLast>
+      <MemberSection name="Miembros">
         {regularMembers.map((member) => (
+          <UserCard key={member.id} {...member} />
+        ))}
+      </MemberSection>
+      <MemberSection name="Candidatos" isLast>
+        {candidateMembers.map((member) => (
           <UserCard key={member.id} {...member} />
         ))}
       </MemberSection>

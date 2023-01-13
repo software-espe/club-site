@@ -2,7 +2,7 @@ import React from 'react';
 
 interface Props {
   label: string;
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 
 const ComponentTemplateWithLabel: React.FC<Props> = ({ label, children }) => {

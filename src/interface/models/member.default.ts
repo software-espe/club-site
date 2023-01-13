@@ -12,9 +12,9 @@ export const defaultMember: Member = {
   },
   role: 'candidate',
   label: undefined,
-  birthdate: '',
+  birthdate: undefined,
   career: '',
-  currentSemester: '',
+  semester: undefined,
   experience: false,
   picture_url: undefined
 };
