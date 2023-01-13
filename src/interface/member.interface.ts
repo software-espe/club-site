@@ -1,4 +1,4 @@
-export type role = 'member' | 'vetus' | 'ventator' | 'candidate';
+export type role = 'member' | 'vetus' | 'venator' | 'candidate';
 
 export interface Member {
   id?: string;
@@ -12,9 +12,9 @@ export interface Member {
   };
   role?: role;
   label?: string;
-  birthdate: string;
+  birthdate?: Date;
   career: string;
-  currentSemester: string;
+  semester?: number;
   experience: boolean;
   picture_url?: string;
 }
