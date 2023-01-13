@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         <div className="absolute z-20 top-[90px] left-0 right-0 mx-auto bg-gray-light rounded-xl w-[500px] h-[300px]"></div>
         <div className="absolute z-10 top-[200px] right-2/4 mr-5 bg-gray-opaque rounded-xl w-[500px] h-[300px]"></div>
       </div>
-        <GroupsContainer  />
+      <GroupsContainer />
     </BasePage>
   );
 };
