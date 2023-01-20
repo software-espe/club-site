@@ -1,8 +1,8 @@
-import Footer from '../organisms/Footer';
-import Header from '../organisms/Header';
-import { ReactNode } from 'react';
 import { Authenticate } from './Authenticate';
+import { ReactNode } from 'react';
+import Footer from '../organisms/Footer';
 import Head from 'next/head';
+import Header from '../organisms/Header';
 
 interface Props {
   title?: string;

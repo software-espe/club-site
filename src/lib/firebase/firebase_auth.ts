@@ -1,8 +1,8 @@
 import {
   GoogleAuthProvider,
+  UserCredential,
   signInWithPopup,
-  signOut,
-  UserCredential
+  signOut
 } from '@firebase/auth';
 import { firebaseAuth } from './firebase.config';
 

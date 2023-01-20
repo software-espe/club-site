@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useState } from 'react';
 import { Member } from '../../interface/member.interface';
-import UserSocials from '../molecules/UserSocials';
 import { getFileUrl } from '../../lib/services/photos.service';
 import { useRouter } from 'next/router';
+import React, { FC, useEffect, useState } from 'react';
+import UserSocials from '../molecules/UserSocials';
 
 const UserCard: FC<Partial<Member>> = ({
   id,

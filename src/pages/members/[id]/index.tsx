@@ -1,9 +1,9 @@
-import { NextPage } from 'next';
-import BasePage from '../../../components/templates/BasePage';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 import { Member } from '../../../interface/member.interface';
+import { NextPage } from 'next';
 import { fetchMemberById } from '../../../lib/services/members.service';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import BasePage from '../../../components/templates/BasePage';
 
 const Index: NextPage = () => {
   const route = useRouter();

@@ -2,11 +2,11 @@
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint",
-    "prettier"
+    "prettier",
+    "sort-imports-es6-autofix"
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
@@ -16,12 +16,20 @@
     "jest": true,
     "node": true
   },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
   "rules": {
+    "sort-imports-es6-autofix/sort-imports-es6": [
+      2,
+      {
+        "ignoreCase": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": [
+          "none",
+          "all",
+          "multiple",
+          "single"
+        ]
+      }
+    ],
     "prettier/prettier": "error",
     "linebreak-style": "off",
     "no-console": [

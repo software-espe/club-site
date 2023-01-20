@@ -1,13 +1,13 @@
-import UserThumbnail from '../atoms/UserThumbnail';
-import { useRouter } from 'next/router';
-import { userSignIn, userSignOut } from '../../lib/services/auth.service';
 import { login, logout } from '../../store/reducers/user.store';
 import { useDispatch } from 'react-redux';
-import userSelector from '../../store/selectors/user.selector';
-import SessionBadge from '../atoms/SessionBadge';
+import { useModal } from '../../hooks/useModal';
+import { useRouter } from 'next/router';
+import { userSignIn, userSignOut } from '../../lib/services/auth.service';
 import GoBackButton from '../atoms/GoBackButton';
 import Modal from '../atoms/Modal';
-import { useModal } from '../../hooks/useModal';
+import SessionBadge from '../atoms/SessionBadge';
+import UserThumbnail from '../atoms/UserThumbnail';
+import userSelector from '../../store/selectors/user.selector';
 
 interface Props {
   backTo?: string;

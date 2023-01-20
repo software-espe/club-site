@@ -13,7 +13,7 @@ export const useForm = <T extends Record<string, unknown>>(
     setValues
   };
 };
-const formatModel = <T extends Record<string, any>>(
+const formatModel = <T extends Record<string, unknown>>(
   initialState: T,
   modifiedState?: T
 ): T => {
@@ -21,7 +21,7 @@ const formatModel = <T extends Record<string, any>>(
     return initialState;
   }
 
-  const model: T = Object.assign(initialState);
+  const model = Object.assign(initialState);
 
   Object.entries(modifiedState).forEach(([key, value]) => {
     if (value) {

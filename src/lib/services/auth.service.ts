@@ -1,4 +1,4 @@
-import { signInWithGoogle, logOutGoogle } from '../firebase/firebase_auth';
+import { logOutGoogle, signInWithGoogle } from '../firebase/firebase_auth';
 import type { User } from '@firebase/auth';
 
 const userSignIn = async (): Promise<User | void> => {

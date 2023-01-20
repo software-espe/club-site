@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import type { Handler } from './types';
 import errorHandler from './errorHandler';
+import type { Handler } from './types';
 
 /**
  * Handle wrapper as middleware

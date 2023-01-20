@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux';
 import { State } from '../store';
+import { useSelector } from 'react-redux';
 import type { User } from '@firebase/auth';
 
 const userSelector = () => {

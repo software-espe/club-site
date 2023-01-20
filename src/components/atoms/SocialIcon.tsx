@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import { SizeProps } from '../../interface/misc.interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SizeProps } from '../../interface/misc.interfaces';
 
 interface baseProps {
   src: string;

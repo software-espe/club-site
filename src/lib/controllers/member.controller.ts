@@ -2,6 +2,7 @@ import { Collections } from '../../interface/collections.interface';
 import { Member } from '../../interface/member.interface';
 import { Query } from '../tools/BuildQueryParams';
 import { firestore } from '../firebase/firebase.admin.config';
+import type { UpdateData } from '@firebase/firestore';
 
 export const getMembers = async (
   queryParams?: Array<Query>
@@ -57,7 +58,7 @@ export const updateMember = async (
     await firestore
       .collection(Collections.members)
       .doc(id)
-      .update(member as any);
+      .update(member as UpdateData<Member>);
     return {
       id,
       ...member

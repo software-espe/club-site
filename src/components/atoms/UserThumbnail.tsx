@@ -1,6 +1,6 @@
 import React from 'react';
-import type { User } from '@firebase/auth';
 import userNameDecorator from '../../lib/tools/userNameDecorator';
+import type { User } from '@firebase/auth';
 
 interface Props {
   user: User;

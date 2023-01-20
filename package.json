@@ -13,6 +13,7 @@
     "validate": "npm run lint && npm run test"
   },
   "dependencies": {
+    "@material-tailwind/react": "1.2.5",
     "@reduxjs/toolkit": "1.9.1",
     "@sendgrid/mail": "7.7.0",
     "@types/node": "18.11.9",
@@ -40,6 +41,7 @@
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "autoprefixer": "10.4.13",
     "eslint-config-next": "13.0.5",
+    "eslint-plugin-sort-imports-es6-autofix": "0.6.0",
     "jest": "29.0.0",
     "jest-environment-jsdom": "28.1.0",
     "postcss": "8.4.19",

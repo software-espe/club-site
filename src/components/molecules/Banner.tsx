@@ -1,7 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
-import BaseButton from '../atoms/BaseButton';
 import { useRouter } from 'next/router';
+import BaseButton from '../atoms/BaseButton';
+import Image from 'next/image';
+import React from 'react';
 import userSelector from '../../store/selectors/user.selector';
 
 const Banner = () => {

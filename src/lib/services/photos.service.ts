@@ -1,7 +1,7 @@
 import {
+  StorageReference,
   getDownloadURL,
   ref,
-  StorageReference,
   uploadBytes
 } from 'firebase/storage';
 import { firebaseStorage } from '../firebase/firebase.config';

@@ -1,10 +1,14 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+
+const withMT = require("@material-tailwind/react/utils/withMT");
+
+module.exports = withMT({
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
+    fontFamily: "Inter",
     extend: {
       fontSize: {
         headline: '96px',
@@ -18,6 +22,7 @@ module.exports = {
         blur: '0 0px 40px 3px #082BAA',
       },
       colors: {
+        base: '#FFFFFF',
         gray: {
           DEFAULT: '#202020',
           opaque: '#252525',
@@ -36,4 +41,4 @@ module.exports = {
     }
   },
   plugins: []
-};
+});

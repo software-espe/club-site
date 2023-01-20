@@ -1,11 +1,11 @@
+import { Member } from '../../../interface/member.interface';
 import { NextApiRequest, NextApiResponse } from 'next';
 import {
   addMember,
   getMembers
 } from '../../../lib/controllers/member.controller';
-import { Member } from '../../../interface/member.interface';
-import apiHandler from '../../../lib/middlewares/apiHandler';
 import { buildQueryParams } from '../../../lib/tools/BuildQueryParams';
+import apiHandler from '../../../lib/middlewares/apiHandler';
 
 const getController = async (req: NextApiRequest, res: NextApiResponse) => {
   const queryParams = buildQueryParams(req.query);
