@@ -6,12 +6,15 @@ interface Props extends React.HTMLAttributes<HTMLButtonElement> {
 
 const SessionBadge = ({ text, ...props }: Props) => {
   return (
+    <div>
+    <strong className='text-neutral-600'>¿Ya formas parte del Club?</strong>
     <button
-      className="border-blue-50 border px-4 py-2 rounded-lg opacity-50 hover:opacity-100"
+      className=" mx-3 text-neutral-50 opacity-50 hover:opacity-100"
       {...props}
     >
       {text}
     </button>
+    </div>
   );
 };
 

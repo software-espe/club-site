@@ -4,7 +4,6 @@ import { userSignIn, userSignOut } from '../../lib/services/auth.service';
 import { login, logout } from '../../store/reducers/user.store';
 import { useDispatch } from 'react-redux';
 import userSelector from '../../store/selectors/user.selector';
-import SessionBadge from '../atoms/SessionBadge';
 import GoBackButton from '../atoms/GoBackButton';
 import Modal from '../atoms/Modal';
 import { useModal } from '../../hooks/useModal';
@@ -40,8 +39,6 @@ const Header = ({ backTo = '/' }: Props) => {
   const isHome = router?.pathname === '/';
 
   const userIsLogged = isLogged && !isLoading;
-  const userIsNotLogged = !isLogged && !isLoading;
-
   return (
     <>
       <Modal
@@ -67,7 +64,6 @@ const Header = ({ backTo = '/' }: Props) => {
       <header className="flex justify-between items-center h-24 w-full bg-gray px-8 py-4">
         <GoBackButton isHome={isHome} onClick={redirectToHome} />
         {userIsLogged && <UserThumbnail onClick={openModal} user={user} />}
-        {userIsNotLogged && <SessionBadge text="Entrar" onClick={signIn} />}
       </header>
     </>
   );
