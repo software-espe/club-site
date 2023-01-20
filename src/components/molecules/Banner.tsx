@@ -3,15 +3,15 @@ import Image from 'next/image';
 import BaseButton from '../atoms/BaseButton';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import { login} from '../../store/reducers/user.store';
-import { userSignIn} from '../../lib/services/auth.service';
+import { login } from '../../store/reducers/user.store';
+import { userSignIn } from '../../lib/services/auth.service';
 import SessionBadge from '../atoms/SessionBadge';
 import userSelector from '../../store/selectors/user.selector';
 
 const Banner = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { user, isLoading ,isLogged } = userSelector();
+  const { user, isLoading, isLogged } = userSelector();
 
   const redirectToMembers = async () => {
     await router.push('/members');
@@ -66,7 +66,7 @@ const Banner = () => {
           text="Conocer a los miembros"
         />
       </div>
-      {userIsNotLogged && <SessionBadge text="Ingresa Aquí"  onClick={signIn} />}
+      {userIsNotLogged && <SessionBadge onClick={signIn} />}
     </div>
   );
 };
