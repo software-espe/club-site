@@ -1,5 +1,5 @@
-import React from 'react';
 import GroupCard from '../atoms/GroupCard';
+import React from 'react';
 
 const GroupsContainer = () => {
   return (

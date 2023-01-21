@@ -1,8 +1,8 @@
-import { FC, ReactNode, useEffect, HTMLAttributes } from 'react';
-import { useDispatch } from 'react-redux';
-import { login, logout } from '../../store/reducers/user.store';
-import { firebaseAuth } from '../../lib/firebase/firebase.config';
+import { FC, HTMLAttributes, ReactNode, useEffect } from 'react';
 import { UserInfo } from '@firebase/auth';
+import { firebaseAuth } from '../../lib/firebase/firebase.config';
+import { login, logout } from '../../store/reducers/user.store';
+import { useDispatch } from 'react-redux';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode | ReactNode[];

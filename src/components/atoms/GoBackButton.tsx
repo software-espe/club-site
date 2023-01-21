@@ -1,5 +1,5 @@
-import React, { HTMLAttributes } from 'react';
 import Image from 'next/image';
+import React, { HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
   isHome?: boolean;

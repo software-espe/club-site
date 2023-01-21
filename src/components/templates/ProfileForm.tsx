@@ -1,15 +1,15 @@
-import React from 'react';
-import FormInput from '../molecules/FormInput';
-import { useFormik, FormikProvider } from 'formik';
+import { FormikProvider, useFormik } from 'formik';
 import { Member } from '../../interface/member.interface';
 import { defaultMember } from '../../interface/models/member.default';
-import BaseButton from '../atoms/BaseButton';
-import InputWithIcon from '../atoms/InputWithIcon';
-import InputEmail from '../atoms/InputEmail';
-import ComponentTemplateWithLabel from '../atoms/ComponentTemplateWithLabel';
-import InputCheckbox from '../atoms/InputCheckbox';
 import { fetchRegisterMember } from '../../lib/services/members.service';
+import BaseButton from '../atoms/BaseButton';
+import FormInput from '../molecules/FormInput';
+import FormPhotoInput from '../molecules/FormPhotoInput';
+import InputCheckbox from '../atoms/InputCheckbox';
+import InputEmail from '../atoms/InputEmail';
 import MemberSchema from '../../schemas/Member.schema';
+import React from 'react';
+import SectionWithLabel from '../atoms/SectionWithLabel';
 
 const ProfileForm = () => {
   const handleSubmit = async (values: Member) => {
@@ -26,66 +26,54 @@ const ProfileForm = () => {
   });
   return (
     <FormikProvider value={formik}>
-      <h2 className="pl-32 mt-20 text-title font-bold">
+      <h2 className="pl-32 mt-12 text-title font-bold">
         Formulario de Registro
       </h2>
-      <div className="flex flex-row gap-x-32 px-48 py-12">
-        <div className="flex flex-col gap-y-8 w-1/2 m-4">
+      <div className="flex lg:flex-row flex-col">
+        <div className="flex flex-col">
+          <FormPhotoInput
+            width={300}
+            height={300}
+            name="photo"
+            inputId="photo"
+            acceptedExtensions={['.jpg', '.png']}
+          />
           <InputEmail setter={formik.setFieldValue} />
-          <ComponentTemplateWithLabel label="Redes">
-            <InputWithIcon
-              src="/icons/linkedin.svg"
-              alt="Linkedin icon"
-              id="linkedinIcon"
+          <SectionWithLabel label="Redes Sociales">
+            <FormInput
+              icon="/icons/linkedin.svg"
               name="socials.linkedin"
-              placeholder="linkedin/"
-              value={formik.values.socials.linkedin}
-              onChange={formik.handleChange}
+              label="Linkedin"
             />
-            <InputWithIcon
-              src="/icons/twitter.svg"
-              alt="Twitter icon"
+            <FormInput
+              icon="/icons/twitter.svg"
+              label="Twitter"
               name="socials.twitter"
-              placeholder="@"
-              value={formik.values.socials.twitter}
-              onChange={formik.handleChange}
             />
-            <InputWithIcon
-              src="/icons/whatsapp.svg"
-              alt="Whatsapp icon"
+            <FormInput
+              icon="/icons/whatsapp.svg"
               name="socials.whatsapp"
-              placeholder="+593"
-              value={formik.values.socials.whatsapp}
-              onChange={formik.handleChange}
+              label="Whatsapp"
             />
-          </ComponentTemplateWithLabel>
+          </SectionWithLabel>
         </div>
+
         <div className="flex flex-col w-1/2">
-          <FormInput
-            type="text"
-            label="Nombre"
-            name="name"
-            onChange={formik.handleChange}
-          />
-          <FormInput
-            type="text"
-            label="Apellido"
-            name="surname"
-            onChange={formik.handleChange}
-          />
+          <div className="md:w-[650px] w-full flex flex-col lg:flex-row justify-around items-center">
+            <FormInput type="text" label="Nombre" name="name" />
+            <FormInput type="text" label="Apellido" name="surname" />
+          </div>
+
+          <div className="md:w-[650px] w-full flex flex-col lg:flex-row justify-around items-center">
+            <FormInput type="text" label="Carrera" name="career" />
+            <FormInput type="text" name="semester" label="Semestre actual" />
+          </div>
+
           {/*<InputDate*/}
           {/*label="Fecha de Nacimiento"*/}
           {/*value={formik.values.birthdate?.toDateString()}*/}
           {/*onChange={formik.handleChange}*/}
           {/*/>*/}
-          <FormInput type="text" id="career" label="Carrera" name="career" />
-          <FormInput
-            type="text"
-            id="currentSemester"
-            label="Semestre actual"
-            name="semester"
-            onChange={formik.handleChange}
-          />
           <InputCheckbox
             text="Tengo experiencia en programación"
             checked={formik.values.experience}

@@ -1,6 +1,7 @@
 import { InputHTMLAttributes, useEffect, useRef } from 'react';
-import ComponentTemplateWithLabel from './ComponentTemplateWithLabel';
 import { userSignIn } from '../../lib/services/auth.service';
+import Image from 'next/image';
+import SectionWithLabel from './SectionWithLabel';
 import userSelector from '../../store/selectors/user.selector';
 
 interface Props extends InputHTMLAttributes<HTMLDivElement> {
@@ -29,20 +30,27 @@ const InputEmail = ({ setter, ...props }: Props) => {
   }, [isLogged]);
 
   return (
-    <ComponentTemplateWithLabel label="Correo">
+    <SectionWithLabel label="Correo">
       <div
         className="flex flex-col gap-y-9 items-center justify-center"
         {...props}
       >
-        <div className="bg-gray-light overflow-hidden rounded-full w-40 h-40" />
         <button
           className="bg-gray-opaque hover:bg-gray-light no-outline rounded-md px-4 py-2 text-center"
           onClick={signIn}
         >
-          {user?.email || 'Entrar con Google'}
+          <div className="center gap-4">
+            <Image
+              src="/icons/google.svg"
+              alt="google"
+              width={30}
+              height={30}
+            />
+            {user?.email || 'Entrar con correo de la ESPE'}
+          </div>
         </button>
       </div>
-    </ComponentTemplateWithLabel>
+    </SectionWithLabel>
   );
 };
 

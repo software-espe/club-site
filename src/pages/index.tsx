@@ -1,8 +1,8 @@
-import BasePage from '../components/templates/BasePage';
-import Image from 'next/image';
 import { NextPage } from 'next';
 import Banner from '../components/molecules/Banner';
+import BasePage from '../components/templates/BasePage';
 import GroupsContainer from '../components/molecules/GroupsContainer';
+import Image from 'next/image';
 
 const Home: NextPage = () => {
   return (

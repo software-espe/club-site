@@ -1,11 +1,11 @@
+import { Member } from '../../../../interface/member.interface';
 import { NextApiRequest, NextApiResponse } from 'next';
 import {
   deleteMember,
-  updateMember,
   getMemberById,
-  setMember
+  setMember,
+  updateMember
 } from '../../../../lib/controllers/member.controller';
-import { Member } from '../../../../interface/member.interface';
 import apiHandler from '../../../../lib/middlewares/apiHandler';
 
 const getController = async (req: NextApiRequest, res: NextApiResponse) => {
