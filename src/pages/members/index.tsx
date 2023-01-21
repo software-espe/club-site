@@ -15,7 +15,8 @@ export const getStaticProps: GetStaticProps<fetchData> = async () => {
   return {
     props: {
       members
-    }
+    },
+    revalidate: 120
   };
 };
 
