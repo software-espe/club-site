@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {(tailwindConfig: object) => object} */
 
-const withMT = require("@material-tailwind/react/utils/withMT");
+const withMT = require('@material-tailwind/react/utils/withMT');
 
 module.exports = withMT({
   content: [
@@ -8,7 +8,9 @@ module.exports = withMT({
     './src/components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    fontFamily: "Inter",
+    fontFamily: {
+      base: ['Inter', 'sans-serif']
+    },
     extend: {
       fontSize: {
         headline: '96px',
@@ -19,10 +21,12 @@ module.exports = withMT({
         small: '16px'
       },
       boxShadow: {
-        blur: '0 0px 40px 3px #082BAA',
+        blur: '0 0px 40px 3px #082BAA'
       },
       colors: {
-        base: '#FFFFFF',
+        base: {
+          DEFAULT: '#FFFFFF'
+        },
         gray: {
           DEFAULT: '#202020',
           opaque: '#252525',
@@ -35,7 +39,7 @@ module.exports = withMT({
           light: '#0FDA78'
         },
         blue: {
-          light: '#9FD1FF',
+          light: '#9FD1FF'
         }
       }
     }

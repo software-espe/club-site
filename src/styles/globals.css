@@ -19,6 +19,7 @@ a {
 }
 
 * {
+    @apply font-base !important;
     box-sizing: border-box;
     /*border: 1px solid red;*/
 }

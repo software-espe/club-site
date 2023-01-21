@@ -1,26 +1,27 @@
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { Member } from '../../interface/member.interface';
-import { NextPage } from 'next';
-import { fetchAllMembers } from '../../lib/services/members.service';
-import { useEffect, useState } from 'react';
+import { getMembers } from '../../lib/controllers/member.controller';
 import BasePage from '../../components/templates/BasePage';
 import Image from 'next/image';
 import MemberSection from '../../components/atoms/MemberSection';
 import UserCard from '../../components/organisms/UserCard';
 
-const Index: NextPage = () => {
-  const [members, setMembers] = useState<Member[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+type fetchData = {
+  members: Member[];
+};
 
-  useEffect(() => {
-    (async () => {
-      if (isLoading) {
-        const { members } = await fetchAllMembers();
-        setMembers(members);
-        setIsLoading(false);
-      }
-    })();
-  });
+export const getStaticProps: GetStaticProps<fetchData> = async () => {
+  const members = await getMembers();
+  return {
+    props: {
+      members
+    }
+  };
+};
 
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
+
+const Index = ({ members }: Props) => {
   const staffMembers = members.filter((member) => member.role === 'vetus');
   const topMembers = members.filter((member) => member.role === 'venator');
   const regularMembers = members.filter((member) => member.role === 'member');
