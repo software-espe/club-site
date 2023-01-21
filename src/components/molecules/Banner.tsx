@@ -1,13 +1,17 @@
+import { login } from '../../store/reducers/user.store';
+import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
+import { userSignIn } from '../../lib/services/auth.service';
 import BaseButton from '../atoms/BaseButton';
 import Image from 'next/image';
 import React from 'react';
+import SessionBadge from '../atoms/SessionBadge';
 import userSelector from '../../store/selectors/user.selector';
 
 const Banner = () => {
   const router = useRouter();
-
-  const { user, isLogged } = userSelector();
+  const dispatch = useDispatch();
+  const { user, isLoading, isLogged } = userSelector();
 
   const redirectToMembers = async () => {
     await router.push('/members');
@@ -21,6 +25,14 @@ const Banner = () => {
     await router.push(`/members/${user.uid}`);
   };
 
+  const signIn = async () => {
+    const userSession = await userSignIn();
+    if (userSession) {
+      dispatch(login(userSession));
+    }
+  };
+
+  const userIsNotLogged = !isLogged && !isLoading;
   return (
     <div className="h-[calc(100vh-12rem)] center-col md:mt-0 gap-8">
       <Image src="/images/logo.svg" alt="logo" width={152} height={172} />
@@ -43,7 +55,7 @@ const Banner = () => {
             <BaseButton
               onClick={redirectToRegister}
               className="bg-gray w-[150px]"
-              text="Unirme"
+              text="Aplicar"
             />
           )}
         </>
@@ -54,6 +66,7 @@ const Banner = () => {
           text="Conocer a los miembros"
         />
       </div>
+      {userIsNotLogged && <SessionBadge onClick={signIn} />}
     </div>
   );
 };
