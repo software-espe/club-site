@@ -1,17 +1,18 @@
-import React from 'react';
+import { HTMLAttributes } from 'react';
 
-interface Props extends React.HTMLAttributes<HTMLButtonElement> {
-  text: string;
-}
-
-const SessionBadge = ({ text, ...props }: Props) => {
+const SessionBadge = ({ ...props }: HTMLAttributes<HTMLButtonElement>) => {
   return (
-    <button
-      className="border-blue-50 border px-4 py-2 rounded-lg opacity-50 hover:opacity-100"
-      {...props}
-    >
-      {text}
-    </button>
+    <div className="center gap-2">
+      <strong className="text-gray-super text-small font-normal">
+        ¿Ya formas parte del Club?
+      </strong>
+      <button
+        className="opacity-50 hover:opacity-100 text-small font-semibold"
+        {...props}
+      >
+        Ingresa Aquí
+      </button>
+    </div>
   );
 };
 
