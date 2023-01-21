@@ -14,4 +14,6 @@ const customJestConfig = {
   transformIgnorePatterns: ['//node_modules'],
   verbose: true
 };
+
+// ts-prune-ignore-next
 export default createJestConfig(customJestConfig);

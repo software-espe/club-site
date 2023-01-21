@@ -12,7 +12,7 @@ interface FormInputProps {
   icon?: string;
 }
 
-export const FormInput: FC<FormInputProps> = ({
+const FormInput: FC<FormInputProps> = ({
   className,
   name,
   label,

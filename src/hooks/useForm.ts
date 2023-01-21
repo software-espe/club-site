@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useForm = <T extends Record<string, unknown>>(
+const useForm = <T extends Record<string, unknown>>(
   initialState: T,
   modifiedState?: T
 ) => {
@@ -31,3 +31,6 @@ const formatModel = <T extends Record<string, unknown>>(
 
   return model;
 };
+
+// ts-prune-ignore-next
+export default useForm;

@@ -10,7 +10,9 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "test": "jest",
-    "validate": "npm run lint && npm run test"
+    "prune": "ts-prune -e",
+    "validate": "npm run lint && npm run test && npm run prune",
+    "validate-hard": "npm run build && npm run validate"
   },
   "dependencies": {
     "@material-tailwind/react": "1.2.5",
@@ -49,6 +51,7 @@
     "redux-mock-store": "1.5.4",
     "tailwindcss": "3.2.4",
     "ts-jest": "29.0.3",
-    "ts-node": "10.9.1"
+    "ts-node": "10.9.1",
+    "ts-prune": "0.10.3"
   }
 }
