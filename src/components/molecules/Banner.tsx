@@ -11,7 +11,7 @@ import userSelector from '../../store/selectors/user.selector';
 const Banner = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { user, isLoading, isLogged } = userSelector();
+  const { user, isLogged } = userSelector();
 
   const redirectToMembers = async () => {
     await router.push('/members');
@@ -19,6 +19,10 @@ const Banner = () => {
 
   const redirectToRegister = async () => {
     await router.push('/register');
+  };
+
+  const redirectToForm = async () => {
+    await router.push('/register/form');
   };
 
   const redirectToProfile = async () => {
@@ -32,7 +36,10 @@ const Banner = () => {
     }
   };
 
-  const userIsNotLogged = !isLogged && !isLoading;
+  const isInProgress = isLogged && user?.role === 'progress';
+  const isMember = isLogged && user?.role !== 'progress';
+  const isNotLogged = !isLogged;
+
   return (
     <div className="h-[calc(100vh-12rem)] center-col md:mt-0 gap-8">
       <Image src="/images/logo.svg" alt="logo" width={152} height={172} />
@@ -44,29 +51,34 @@ const Banner = () => {
         </h2>
       </div>
       <div className="center lg:flex-row flex-col  gap-4 z-10">
-        <>
-          {isLogged ? (
-            <BaseButton
-              onClick={redirectToProfile}
-              className="bg-gray w-[200px]"
-              text="Ir a mi perfil"
-            />
-          ) : (
-            <BaseButton
-              onClick={redirectToRegister}
-              className="bg-gray w-[150px]"
-              text="Aplicar"
-            />
-          )}
-        </>
-
+        {isInProgress && (
+          <BaseButton
+            onClick={redirectToForm}
+            className="bg-gray w-[250px]"
+            text="Continuar aplicación"
+          />
+        )}
+        {isMember && (
+          <BaseButton
+            onClick={redirectToProfile}
+            className="bg-gray w-[200px]"
+            text="Ir a mi perfil"
+          />
+        )}
+        {isNotLogged && (
+          <BaseButton
+            onClick={redirectToRegister}
+            className="bg-gray w-[150px]"
+            text="Aplicar"
+          />
+        )}
         <BaseButton
           onClick={redirectToMembers}
           className="bg-gray w-[300px]"
           text="Conocer a los miembros"
         />
       </div>
-      {userIsNotLogged && <SessionBadge onClick={signIn} />}
+      {isNotLogged && <SessionBadge onClick={signIn} />}
     </div>
   );
 };

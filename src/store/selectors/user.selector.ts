@@ -1,14 +1,10 @@
 import { State } from '../store';
+import { clubUser } from '../../interface/user.interface';
 import { useSelector } from 'react-redux';
-import type { User } from '@firebase/auth';
 
 const userSelector = () => {
-  const user = useSelector((state: State): User => {
-    return state.userSession.user as User;
-  });
-
-  const isLoading = useSelector((state: State): boolean => {
-    return state.userSession.isLoading;
+  const user = useSelector((state: State): clubUser => {
+    return state.userSession.user as clubUser;
   });
 
   const isLogged = useSelector((state: State): boolean => {
@@ -17,7 +13,6 @@ const userSelector = () => {
 
   return {
     user,
-    isLoading,
     isLogged
   };
 };

@@ -1,14 +1,14 @@
+import { clubUser } from '../../interface/user.interface';
 import React from 'react';
 import userNameDecorator from '../../lib/tools/userNameDecorator';
-import type { User } from '@firebase/auth';
 
 interface Props {
-  user: User;
+  user: clubUser;
   onClick?: () => void;
 }
 
 const UserThumbnail = ({ user, onClick }: Props) => {
-  const photoUrl = user.photoURL || '/fallbacks/user.svg';
+  const photoUrl = user.photoURL || '/fallbacks/users.svg';
 
   return (
     <div className="flex justify-center items-center relative">
@@ -23,7 +23,7 @@ const UserThumbnail = ({ user, onClick }: Props) => {
         alt="user photo"
         onError={(e) => {
           const target = e.target as HTMLImageElement;
-          target.src = '/fallbacks/user.svg';
+          target.src = '/fallbacks/users.svg';
         }}
       />
       <div

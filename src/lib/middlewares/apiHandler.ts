@@ -5,12 +5,14 @@ import type { Handler } from './types';
 /**
  * Handle wrapper as middleware
  */
-const apiHandler = (handler: Handler, protectedAPI?: boolean) => {
+const apiHandler = (handler: Handler) => {
   return async (request: NextApiRequest, response: NextApiResponse) => {
     const method = request.method?.toLowerCase() || 'get';
     const { authorization } = request.headers;
 
-    if (protectedAPI && authorization !== process.env.AUTHORIZATION_API_KEY) {
+    const isProduction = process.env.ENV === 'production';
+
+    if (isProduction && authorization !== process.env.AUTHORIZATION_API_KEY) {
       return response.status(403).end('Unauthorized request');
     }
 

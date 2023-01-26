@@ -17,7 +17,7 @@ const Header = ({ backTo = '/' }: Props) => {
   const router = useRouter();
 
   const [isModalOpen, openModal, closeModal] = useModal();
-  const { user, isLoading, isLogged } = userSelector();
+  const { user, isLogged } = userSelector();
 
   const redirectToHome = async () => {
     await router.push(backTo);
@@ -31,7 +31,6 @@ const Header = ({ backTo = '/' }: Props) => {
 
   const isHome = router?.pathname === '/';
 
-  const userIsLogged = isLogged && !isLoading;
   return (
     <>
       <Modal
@@ -56,7 +55,7 @@ const Header = ({ backTo = '/' }: Props) => {
       </Modal>
       <header className="flex justify-between items-center h-24 w-full bg-gray px-8 py-4">
         <GoBackButton isHome={isHome} onClick={redirectToHome} />
-        {userIsLogged && <UserThumbnail onClick={openModal} user={user} />}
+        {isLogged && <UserThumbnail onClick={openModal} user={user} />}
       </header>
     </>
   );

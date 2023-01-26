@@ -1,20 +1,6 @@
-type role = 'member' | 'vetus' | 'venator' | 'candidate';
+import { Candidate } from './candidate.interface';
 
-export interface Member {
-  id?: string;
-  name: string;
-  surname: string;
-  email: string;
-  socials: {
-    linkedin?: string;
-    whatsapp?: string;
-    twitter?: string;
-  };
-  role?: role;
+export interface Member extends Candidate {
   label?: string;
   birthdate?: Date;
-  career: string;
-  semester?: number;
-  experience: boolean;
-  picture_url?: string;
 }

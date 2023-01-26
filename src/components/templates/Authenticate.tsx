@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes, ReactNode, useEffect } from 'react';
-import { UserInfo } from '@firebase/auth';
 import { firebaseAuth } from '../../lib/firebase/firebase.config';
+import { getInfoFromUser } from '../../tools/user.tools';
 import { login, logout } from '../../store/reducers/user.store';
 import { useDispatch } from 'react-redux';
 
@@ -18,14 +18,7 @@ export const Authenticate: FC<Props> = ({ children, ...props }) => {
           await dispatch(logout());
           return;
         }
-        const userInfo: UserInfo = {
-          displayName: loggedUser.displayName,
-          email: loggedUser.email,
-          phoneNumber: loggedUser.phoneNumber,
-          photoURL: loggedUser.photoURL,
-          providerId: loggedUser.providerId,
-          uid: loggedUser.uid
-        };
+        const userInfo = await getInfoFromUser(loggedUser);
         dispatch(login(userInfo));
       }
     });
