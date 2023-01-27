@@ -8,7 +8,7 @@ interface Props {
 }
 
 const UserThumbnail = ({ user, onClick }: Props) => {
-  const photoUrl = user.photoURL || '/fallbacks/users.svg';
+  const photoUrl = user.photoURL || '/fallbacks/user.svg';
 
   return (
     <div className="flex justify-center items-center relative">
@@ -23,7 +23,7 @@ const UserThumbnail = ({ user, onClick }: Props) => {
         alt="user photo"
         onError={(e) => {
           const target = e.target as HTMLImageElement;
-          target.src = '/fallbacks/users.svg';
+          target.src = '/fallbacks/user.svg';
         }}
       />
       <div

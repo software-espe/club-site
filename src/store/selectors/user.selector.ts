@@ -11,9 +11,19 @@ const userSelector = () => {
     return state.userSession.loggedIn;
   });
 
+  const isLoading = useSelector((state: State): boolean => {
+    return state.userSession.loading;
+  });
+
+  const triedToLogin = useSelector((state: State): boolean => {
+    return state.userSession.triedToLogin;
+  });
+
   return {
     user,
-    isLogged
+    isLogged,
+    isLoading,
+    triedToLogin
   };
 };
 

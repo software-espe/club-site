@@ -18,7 +18,7 @@ export const Authenticate: FC<Props> = ({ children, ...props }) => {
           await dispatch(logout());
           return;
         }
-        const userInfo = await getInfoFromUser(loggedUser);
+        const userInfo = getInfoFromUser(loggedUser);
         dispatch(login(userInfo));
       }
     });

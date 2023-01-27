@@ -30,6 +30,7 @@ const Header = ({ backTo = '/' }: Props) => {
   };
 
   const isHome = router?.pathname === '/';
+  const isRegisterRoute = router?.pathname.includes('register');
 
   return (
     <>
@@ -55,7 +56,9 @@ const Header = ({ backTo = '/' }: Props) => {
       </Modal>
       <header className="flex justify-between items-center h-24 w-full bg-gray px-8 py-4">
         <GoBackButton isHome={isHome} onClick={redirectToHome} />
-        {isLogged && <UserThumbnail onClick={openModal} user={user} />}
+        {isLogged && !isRegisterRoute && (
+          <UserThumbnail onClick={openModal} user={user} />
+        )}
       </header>
     </>
   );

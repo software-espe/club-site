@@ -1,24 +1,32 @@
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType
+} from 'next';
 import { Member } from '../../../interface/member.interface';
-import { NextPage } from 'next';
-import { fetchMemberById } from '../../../lib/services/members.service';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { getMemberById } from '../../../lib/controllers/member.controller';
 import BasePage from '../../../components/templates/BasePage';
 
-const Index: NextPage = () => {
-  const route = useRouter();
-  const { id } = route.query;
-  const [member, setMember] = useState<Member | undefined>(undefined);
+type fetchData = {
+  member: Member;
+};
 
-  useEffect(() => {
-    (async () => {
-      if (id) {
-        const fetchMember = await fetchMemberById(id as string);
-        setMember(fetchMember);
-      }
-    })();
-  });
+export const getServerSideProps: GetServerSideProps<fetchData> = async (
+  context: GetServerSidePropsContext
+) => {
+  const { id } = context.query as { id: string };
 
+  const member = await getMemberById(id);
+  return {
+    props: {
+      member: member as Member
+    }
+  };
+};
+
+type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
+
+const Index = ({ member }: Props) => {
   return (
     <BasePage title="Miembros del club" backTo="/members">
       <h1>

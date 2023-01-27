@@ -21,7 +21,12 @@ const getRole = async (req: NextApiRequest, res: NextApiResponse) => {
   if (customClaims?.role) {
     res.status(200).json({ role: customClaims.role });
   }
-  res.status(404).json('User does not have a role');
+
+  if (customClaims?.status === 'banned') {
+    res.status(200).json({ status: 'banned', role: undefined });
+  }
+
+  res.status(404).json('Bad request');
 };
 
 export default apiHandler({

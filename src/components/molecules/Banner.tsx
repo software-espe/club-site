@@ -36,9 +36,14 @@ const Banner = () => {
     }
   };
 
-  const isInProgress = isLogged && user?.role === 'progress';
-  const isMember = isLogged && user?.role !== 'progress';
-  const isNotLogged = !isLogged;
+  const isVerified = isLogged && user?.status === 'verified';
+  const isNotVerified = isLogged && user?.status === 'unverified';
+  const isBanned = isLogged && user?.status === 'banned';
+  const hasNoRole = !user?.role;
+
+  const isInProgress = isVerified && hasNoRole;
+  const isMember = isVerified && user?.role === 'member';
+  const needsToRegister = isNotVerified || isBanned || !isLogged;
 
   return (
     <div className="h-[calc(100vh-12rem)] center-col md:mt-0 gap-8">
@@ -54,7 +59,7 @@ const Banner = () => {
         {isInProgress && (
           <BaseButton
             onClick={redirectToForm}
-            className="bg-gray w-[250px]"
+            className="bg-gray whitespace-nowrap w-[270px]"
             text="Continuar aplicación"
           />
         )}
@@ -65,7 +70,7 @@ const Banner = () => {
             text="Ir a mi perfil"
           />
         )}
-        {isNotLogged && (
+        {needsToRegister && (
           <BaseButton
             onClick={redirectToRegister}
             className="bg-gray w-[150px]"
@@ -78,7 +83,7 @@ const Banner = () => {
           text="Conocer a los miembros"
         />
       </div>
-      {isNotLogged && <SessionBadge onClick={signIn} />}
+      {!isLogged && <SessionBadge onClick={signIn} />}
     </div>
   );
 };
