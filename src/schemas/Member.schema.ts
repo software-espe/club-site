@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { formatMaxLength } from '../tools/formatMessage';
+import { formatMaxLength } from '../tools/formatMessage.tools';
 
 const req_string = 'Este campo es requerido';
 

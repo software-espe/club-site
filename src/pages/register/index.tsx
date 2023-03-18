@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import BaseButton from '../../components/atoms/BaseButton';
 import BasePage from '../../components/templates/BasePage';
 import GoogleLogin from '../../components/molecules/GoogleLogin';
+import InfoBlock from '../../components/atoms/InfoBlock';
 import ProgressBadge from '../../components/atoms/ProgressBadge';
 import React from 'react';
 import Title from '../../components/atoms/Title';
@@ -65,6 +66,21 @@ const Index: NextPage = () => {
           </div>
         </div>
       </div>
+
+      <div className="border-b w-1/2 mt-32 mb-6" />
+
+      <InfoBlock title="¿Por qué correo de la Universidad?">
+        <p>
+          El club de Software de la universidad de las Fuerzas Armadas ESPE
+          acepta aplicaciones únicamente de estudiantes de la universidad.
+        </p>
+        <p>
+          Para comprobar que se cumpla con este requisito, pedimos a todo
+          candidato y potencial miembro del club el registrarse utilizando el
+          correo de la universidad. Gracias por su compresión.
+        </p>
+        <p>Puede leer más al respecto en nuestros términos y condiciones</p>
+      </InfoBlock>
     </BasePage>
   );
 };

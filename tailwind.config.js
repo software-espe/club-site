@@ -27,6 +27,10 @@ module.exports = withMT({
         base: {
           DEFAULT: '#FFFFFF'
         },
+        warning:{
+          DEFAULT: '#FFC888',
+          dark: '#8A4B01'
+        },
         gray: {
           DEFAULT: '#202020',
           opaque: '#252525',
