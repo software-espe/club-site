@@ -26,47 +26,58 @@ const ProfileForm = () => {
   });
   return (
     <FormikProvider value={formik}>
-      <h2 className="pl-32 mt-12 text-title font-bold">
+      <h2 className="md:pl-32 pl-9 mt-12 text-title font-bold">
         Formulario de Registro
       </h2>
-      <div className="flex lg:flex-row flex-col">
-        <div className="flex flex-col">
-          <FormPhotoInput
-            width={300}
-            height={300}
-            name="photo"
-            inputId="photo"
-            acceptedExtensions={['.jpg', '.png']}
-          />
-          <InputEmail setter={formik.setFieldValue} />
-          <SectionWithLabel label="Redes Sociales">
-            <FormInput
-              icon="/icons/linkedin.svg"
-              name="socials.linkedin"
-              label="Linkedin"
+      <div className="flex lg:flex-row flex-col pt-10 md:mx-36 mx-auto">
+        <div className="flex flex-col lg:w-1/2">
+          <div className="mx-auto mt-12 mb-4 lg:mr-28">
+            <FormPhotoInput
+              width={159}
+              height={159}
+              name="photo"
+              inputId="photo"
+              acceptedExtensions={['.jpg', '.png']}
             />
-            <FormInput
-              icon="/icons/twitter.svg"
-              label="Twitter"
-              name="socials.twitter"
-            />
-            <FormInput
-              icon="/icons/whatsapp.svg"
-              name="socials.whatsapp"
-              label="Whatsapp"
-            />
-          </SectionWithLabel>
+          </div>
+          <div className="mx-auto mb-10 lg:mr-10">
+            <InputEmail setter={formik.setFieldValue} />
+          </div>
+          <div className="mx-auto lg:mr-10 ">
+            <SectionWithLabel label="Redes Sociales">
+              <div className="flex flex-col gap-y-7 mt-8">
+                <FormInput
+                  icon="/icons/linkedin.svg"
+                  name="socials.linkedin"
+                  label="Linkedin"
+                />
+                <FormInput
+                  icon="/icons/twitter.svg"
+                  label="Twitter"
+                  name="socials.twitter"
+                />
+                <FormInput
+                  icon="/icons/whatsapp.svg"
+                  name="socials.whatsapp"
+                  label="Whatsapp"
+                />
+              </div>
+            </SectionWithLabel>
+          </div>
         </div>
 
-        <div className="flex flex-col w-1/2">
-          <div className="md:w-[650px] w-full flex flex-col lg:flex-row justify-around items-center">
+        <div className="flex flex-col lg:w-1/2 mx-auto mt-8">
+          <div className="flex flex-col max-w-[290px] lg:gap-y-20 gap-y-7 lg:ml-10">
             <FormInput type="text" label="Nombre" name="name" />
             <FormInput type="text" label="Apellido" name="surname" />
-          </div>
-
-          <div className="md:w-[650px] w-full flex flex-col lg:flex-row justify-around items-center">
             <FormInput type="text" label="Carrera" name="career" />
             <FormInput type="text" name="semester" label="Semestre actual" />
+
+            <InputCheckbox
+              text="Tengo experiencia en programación"
+              checked={formik.values.experience}
+              onChange={formik.handleChange}
+            />
           </div>
 
           {/*<InputDate*/}
@@ -74,14 +85,9 @@ const ProfileForm = () => {
           {/*value={formik.values.birthdate?.toDateString()}*/}
           {/*onChange={formik.handleChange}*/}
           {/*/>*/}
-          <InputCheckbox
-            text="Tengo experiencia en programación"
-            checked={formik.values.experience}
-            onChange={formik.handleChange}
-          />
         </div>
       </div>
-      <div className="flex items-center justify-center mb-28">
+      <div className="flex items-center justify-center mb-28 mt-16">
         <BaseButton
           disabled={!formik.isValid}
           text="Registrarse"
