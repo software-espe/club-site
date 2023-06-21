@@ -117,7 +117,7 @@ const FormPhotoInput = ({
   const inputWithoutFile = () => (
     <div className="flex flex-col">
       <div
-        className="border rounded-lg"
+        className="border rounded-full"
         onDrop={async (event: React.DragEvent<HTMLDivElement>) => {
           preventDefault(event);
           const fileList: FileList = event.dataTransfer.files;
